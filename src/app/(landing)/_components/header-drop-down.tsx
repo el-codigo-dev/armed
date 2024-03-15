@@ -49,7 +49,7 @@ export const HeaderDropDown = ({ triggerText, children }: DropDownProps) => {
     }, 3000); 
 
     return () => clearTimeout(timer);
-  }, [isMenuVisible]);
+  }, [isMenuVisible, closeMenu]);
 
   return (
     <div className="relative">

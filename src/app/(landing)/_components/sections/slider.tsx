@@ -52,7 +52,7 @@ const Slider = ({}) => {
         </SwiperSlide>
       </Swiper>
 
-      <div className="max-w-агдд min-h-[358px] w-[1200px] absolute left-[108px] top-[33%] z-10 font-semibold text-[20px] text-white">
+      <div className="max-w-[1200px] min-h-[358px] w-full absolute  top-[33%] z-10 font-semibold text-[20px] text-white left-[50%] translate-x-[-50%]">
         {currentSlide === 0 && (
           <>
             <p>Управляйте своим здоровьем!</p>
