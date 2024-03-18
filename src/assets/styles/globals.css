@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '../fonts/next-art/next-art.css';
+@import '../fonts/raleway/raleway.css';
+
+@layer utilities {
+  .h2-text-black {
+    @apply font-nextArt font-semibold text-custom-black text-[54px] leading-[65px];
+  }
+
+  .h2-text-white {
+    @apply font-nextArt font-semibold text-white-default text-[54px] leading-[65px];
+  }
+
+  .text-default-16 {
+    @apply font-medium  text-[16px] leading-[19px];
+  }
+
+  .text-default-18 {
+    @apply font-medium  text-[18px] leading-[21px];
+  }
+
+  .text-normal-18 {
+    @apply font-normal text-[18px] leading-[21px];
+  }
+
+  .text-default-32 {
+    @apply  text-[32px] leading-[38px] font-medium;
+  }
+
+  .text-doctor-name {
+    @apply  text-[21px] leading-[28px] font-bold;
+  }
+
+  .text-drop-down {
+    @apply  text-[24px] leading-[29px] font-semibold;
+  }
+
+  .text-footer-groups {
+    @apply  text-[21px] leading-[28px] font-semibold
+
+  }
+}
+
+:root {
+  --font-family: 'Montserrat', 'Raleway', 'Next Art' san-serif;
+}

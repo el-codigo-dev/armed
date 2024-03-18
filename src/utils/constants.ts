@@ -1,10 +1,6 @@
-import head from '../assets/images/why-choose/heal.svg'
-import doctors from '../assets/images/why-choose/doctors.svg'
-import monitor from '../assets/images/why-choose/monitor.svg'
-import parking from '../assets/images/why-choose/parking.svg'
-import synergy from '../assets/images/why-choose/synergy.svg'
-import time from '../assets/images/why-choose/time.svg'
-
+import telegram from '@/assets/images/messengers/tgFooter.svg';
+import viber from '@/assets/images/messengers/viberFooter.svg';
+import vk from '@/assets/images/messengers/vk.svg';
 
 export const specialistDoctors = [
   {
@@ -303,35 +299,44 @@ export const complexPropgramms = [
   },
 ];
 
-export const whyChooseImg = [
+export const requisites = [
   {
     id: 1,
-    text: 'Лечение полного цикла и сопровождение пациента на всех этапах лечения',
-    img: head
+    requisit: 'ООО «АРИСТОМЕД»',
   },
   {
     id: 2,
-    text: 'Врачи высшей категории и кандидаты медицинских наук',
-    img: doctors
+    requisit: 'ИНН 7801276282',
   },
   {
     id: 3,
-    text: 'Оборудование экспертного класса',
-    img: monitor
+    requisit: 'ОГРН 1157847100190',
   },
   {
     id: 4,
-    text: 'Синергия доказательной и традиционной медицины',
-    img: parking
+    requisit: 'КПП 784001001',
+  },
+];
+
+export const socials = [
+  {
+    id: 1,
+    link: '/',
+    img: viber,
+    alt: 'Вайбер'
   },
   {
-    id: 5,
-    text: 'Экономия времени и оптимизация процесса лечения за счет сопровождения пациента',
-    img: synergy
+    id: 2,
+    link: '/',
+    img: telegram,
+    alt: 'Телеграмм'
+
   },
   {
-    id: 6,
-    text: 'Бесплатная парковка для пациентов',
-    img: time
+    id: 3,
+    link: '/',
+    img: vk,
+    alt: 'Вконтакте'
+
   },
 ];

@@ -2,12 +2,13 @@ import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import { Raleway } from 'next/font/google';
 
-
-
-import './globals.css';
-import { Header } from './(landing)/_components/header';
-import { Footer } from './(landing)/_components/footer';
+import '../assets/styles/globals.css';
+import { Header } from '../components/layout/header/header';
+import { Footer } from '../components/layout/footer';
 import classNames from 'classnames';
+import { Provider } from 'react-redux';
+import { store } from '../store/store';
+import Providers from '@/utils/providers';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 const raleway = Raleway({ subsets: ['latin'] });
@@ -31,9 +32,11 @@ export default function RootLayout({
           montserrat.className,
           //  raleway.className
         )}>
-        <Header />
-        {children}
-        <Footer />
+        <Providers>
+          <Header />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

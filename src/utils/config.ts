@@ -1,1 +1,1 @@
-const baseUrl = 'https://aristomed.ru/api'
+export const baseUrl = 'https://aristomed.ru'

@@ -1,0 +1,34 @@
+@font-face {
+    font-family: 'Next Art';
+    src: url('./NEXT_ART_Regular.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Next Art';
+    src: url('./NEXT_Art_bold.otf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Next Art';
+    src: url('./NEXT_ART_Heavy.otf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Next Art';
+    src: url('./NEXT_ART_Light.otf') format('truetype');
+    font-weight: 300; 
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Next Art';
+    src: url('./NEXT_ART_SemiBold.otf') format('truetype');
+    font-weight: 600; 
+    font-style: normal;
+}

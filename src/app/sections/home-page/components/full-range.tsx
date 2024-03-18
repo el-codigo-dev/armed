@@ -1,0 +1,51 @@
+import Image from 'next/image';
+import fullRangeImg from '@/assets/images/full-range-img.png';
+import { Button } from '@/components/ui/button';
+
+export const FullRange = () => {
+  return (
+    <section className="w-full text-custom-black py-[100px]">
+      <div className="max-w-[1200px] w-full mx-auto flex justify-between">
+        <Image
+          src={fullRangeImg}
+          alt="Полный спектр медицинского сопровождения"
+          className="rounded-[30px] h-[766px]"
+        />
+
+        <div className="flex flex-col max-w-[590px] text-default-16">
+          <h2 className="h2-text-black text-[54px] mb-[30px] font-semibold leading-[64px]">
+            Полный спектр медицинского сопровождения
+          </h2>
+
+          <h3 className="text-custom-green text-default-32 mb-[15px]">
+            Диагностика
+          </h3>
+          <p className="mb-[30px]">
+            Составляем схемы индивидуальной диагностики для снижения риска развития заболеваний,(все
+            виды клинических исследований, УЗИ) 
+          </p>
+
+          <h3 className="text-custom-green text-default-32 mb-[15px]">
+            Профилактика
+          </h3>
+          <p className="mb-[30px]">
+            Под руководством врачей общей практики корректируем образ жизни пациентов, составляем
+            план дальнейших действий, поддерживаем на пути изменений 
+          </p>
+
+          <h3 className="text-custom-green text-default-32 mb-[15px]">
+            Лечение
+          </h3>
+          <p className="mb-[30px]">
+            Опираемся на доказательную медицину, методики, которые имеют научное подтверждение,
+            проводим экспертные консилиумы для назначения эффективного лечения
+          </p>
+
+          <Button variant={'primary'} className="w-[291px] h-[56px]">
+          Записаться на прием
+        </Button>
+        </div>
+      </div>
+    </section>
+  );
+};
