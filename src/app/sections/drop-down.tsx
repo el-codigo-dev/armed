@@ -44,9 +44,10 @@ export const DropDown = ({
     <div className={`${hasMainBorder && 'border-b-2 border-custom-green'} `}>
       <span
         className={classNames(
-          'flex cursor-pointer justify-between items-center rounded-[20px]',
+          'flex cursor-pointer justify-between items-center',
           // list && 'pb-[30px]',
           borderStyles,
+          color && 'rounded-[20px]',
           color && isMenuVisible && `bg-${color}`
         )}
         onClick={toggleMenu}>
