@@ -15,26 +15,42 @@ import { Button } from '@/components/ui/button';
 
 export const Directions = () => {
   return (
-    <section className="max-w-[1200px] w-full mx-auto flex flex-col text-custom-black mt-[80px]">
+    <section className="max-w-[1200px] w-full mx-auto flex flex-col text-custom-black mt-[80px] max-xl:px-[20px]">
       <h2 className="font-semibold text-[54px] leading-tight tracking-tighter mb-[30px]">
         НАПРАВЛЕНИЯ
       </h2>
-      <div className="grid grid-cols-2 justify-between mb-[60px] gap-[20px]">
+      <div className="grid grid-cols-2 justify-between mb-[60px] gap-[20px] max-xl:grid-cols-1">
         <div>
-          <div className="bg-white-default flex flex-col max-w-[589px] w-full p-10 gap-[27px] rounded-[25px]">
+          <div className="bg-white-default flex flex-col max-w-[589px] w-full p-10 gap-[27px] rounded-[25px] max-xl:max-w-full">
             <h3 className="text-[32px] font-medium text-custom-green">Медицинский центр</h3>
 
             <DropDown
               triggerText={'Консультации врачей-специалистов:'}
               list={specialistDoctors}
               maxHeight={310}
+              triggerTextStyles="font-semibold text-[21px] leading-[25px] pb-[30px]"
+              hasMainBorder
+              listStyles={'border-t-2 border-custom-green pt-[20px]'}
+
             />
 
-            <DropDown triggerText={'Детские программы:'} list={childrensPrograms} maxHeight={300} />
+            <DropDown
+              triggerText={'Детские программы:'}
+              triggerTextStyles="font-semibold text-[21px] leading-[25px] pb-[30px]"
+              list={childrensPrograms}
+              maxHeight={300}
+              hasMainBorder
+              listStyles={'border-t-2 border-custom-green pt-[20px]'}
+
+            />
             <DropDown
               triggerText={'Анализы и диагностика:'}
               list={analysisAndDiagnostics}
               maxHeight={300}
+              triggerTextStyles="font-semibold text-[21px] leading-[25px] pb-[30px]"
+              hasMainBorder
+              listStyles={'border-t-2 border-custom-green pt-[20px]'}
+
             />
 
             <ul className="flex flex-col flex-wrap gap-[15px] max-h-[160px] font-semibold">
@@ -51,25 +67,35 @@ export const Directions = () => {
           </div>
         </div>
 
-        <div className="max-w-[589px] w-full min-h-[640px] flex flex-col gap-[20px] ">
+        <div className="max-w-[589px] w-full min-h-[640px] flex flex-col gap-[20px] max-xl:max-w-full">
           <div className="flex flex-col p-10 gap-[25px] bg-white-default rounded-[25px] pb-[30px]">
             <h3 className="text-[32px] font-medium text-custom-green">Спортивная медицина</h3>
             <DropDown
               triggerText={'Услуги и специалисты:'}
               list={servicesedAndSpecialists}
               maxHeight={100}
+              triggerTextStyles="font-semibold text-[21px] leading-[25px] pb-[30px]"
+              hasMainBorder
+              listStyles={'border-t-2 border-custom-green pt-[20px]'}
+
             />
             <DropDown
               triggerText={'Функциональные обследования:'}
-              triggerTextStyles='mt-[5px]'
+              triggerTextStyles="mt-[5px] font-semibold text-[21px] leading-[25px] pb-[30px]"
               list={functionalExaminations}
               maxHeight={230}
+              hasMainBorder
+              listStyles={'border-t-2 border-custom-green pt-[20px]'}
+
             />
             <DropDown
               triggerText={'Программы по видам спорта:'}
-              triggerTextStyles='mt-[5px]'
+              triggerTextStyles="mt-[5px] font-semibold text-[21px] leading-[25px] pb-[30px]"
               list={sportsPrograms}
               maxHeight={220}
+              hasMainBorder
+              listStyles={'border-t-2 border-custom-green pt-[20px]'}
+
             />
           </div>
           <div className="bg-white-default rounded-[25px] p-10 box-border">

@@ -7,6 +7,8 @@ import telegram from '@/assets/images/messengers/tg.svg';
 import viber from '@/assets/images/messengers/viber.svg';
 
 import logo from '@/assets/images/logo.svg';
+import menu from '@/assets/images/header/headerMenu.svg';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -16,78 +18,96 @@ import { SportsMedicineMenu } from './sports-medicine-menu';
 import useScrollHandler from '@/hooks/use-scroll-handler';
 import classNames from 'classnames';
 import { HealthManagementMenu } from './health-management-menu';
+import { useWindowSize } from '@/hooks/useWindowSize';
+import { useState } from 'react';
+import { HeaderMobileMenu } from './header-mobile-menu';
 
 export const Header = () => {
+const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
   const scrolled = useScrollHandler();
+  const [windowWidth] = useWindowSize();
+
+
 
   return (
     <header
       className={classNames(
-        'fixed top-0 left-0 w-full bg-transparent min-h-[132px] pt-[62px] text-[16px] font-medium leading-[21px] z-20 transition-all duration-500 ',
-        scrolled && '!pt-[32px] !bg-custom-green !bg-opacity-90  shadow-xl',
+        'fixed top-0 left-0 w-full bg-transparent min-h-[132px] pt-[62px] text-[16px] font-medium leading-[21px] z-20 transition-all duration-500  max-xl:pt-[40px] max-xl:min-h-[auto]',
+        scrolled &&
+          'pt-[32px] !bg-custom-green !bg-opacity-90  shadow-xl max-xl:pt-[20px]  max-xl:pb-[20px]',
       )}>
-      <div className="max-w-[1240px] w-full mx-auto flex justify-between px-[20px]">
-        <Image src={logo} width={300} height={38} alt="Логотип" className="h-[38px]" />
+      <div className="max-w-[1200px] w-full mx-auto flex justify-between max-xl:px-[20px] max-xl:items-center">
+        {windowWidth > 1280 ? (
+          <>
+            <Link href={'/'}>
+              <Image src={logo} width={300} height={38} alt="Логотип" className="h-[38px]" />
+            </Link>
+            <div className="flex flex-col  items-end gap-[15px] relative">
+              <div className="flex gap-[30px] items-center">
+                <HeaderDropDown triggerText={'О центре'} position="40%">
+                  <AboutCenterMenu />
+                </HeaderDropDown>
 
-        <div className="flex flex-col  items-end gap-[15px] relative">
-          <div className="flex gap-[30px] items-center">
-            {/* <div className="relative group">
-              <span className="text-white cursor-pointer hover:underline flex items-center group">
-                О центре
-                <ArrowIcon className="ml-[5px] mt-[2px] transform transition-transform duration-200 ease-in-out group-hover:rotate-180" />
-              </span>
+                <Link
+                  className="text-text-green hover:underline"
+                  href="https://yandex.ru/maps/org/aristomed/135703313008/?ll=30.402001%2C59.963379&z=13">
+                  Жукова 3А
+                </Link>
 
-              <div className="group-hover:opacity-100 transition-opacity duration-300 absolute top-10 left-0 opacity-0 bg-white px-4 py-2  border border-gray-200 shadow-lg mt-2 z-30 p-[37px] rounded-[23px] right-0">
-                <AboutCenterMenu />
+                <Link
+                  className="flex gap-[3px] text-text-green hover:underline"
+                  href="https://yandex.ru/maps/org/aristomed/135703313008/?ll=30.402001%2C59.963379&z=13">
+                  <Image src={phoneImg} alt="Телефон" />8 812 999 28 05
+                </Link>
+                <Button
+                  variant={'tertiary'}
+                  className="rounded-[30px] w-[244px] h-[40px] bg-opacity-75 text-[16px]">
+                  Записаться на прием
+                </Button>
               </div>
-            </div> */}
 
-            <HeaderDropDown triggerText={'О центре'} position="40%">
-              <AboutCenterMenu />
-            </HeaderDropDown>
+              <div className="flex gap-[6px] justify-center absolute top-[35px] right-[47%]">
+                <Link href={'/'}>
+                  <Image src={telegram} alt="Телеграмм" />
+                </Link>
+                <Link href={'/'}>
+                  <Image src={viber} alt="Вайбер" />
+                </Link>
+              </div>
 
-            <Link
-              className="text-text-green hover:underline"
-              href="https://yandex.ru/maps/org/aristomed/135703313008/?ll=30.402001%2C59.963379&z=13">
-              Жукова 3А
-            </Link>
+              <div className="flex gap-[30px]">
+                <HeaderDropDown triggerText={'МЕДИЦИНСКИЙ ЦЕНТР'}>
+                  <MedicalCenterMenu />
+                </HeaderDropDown>
 
-            <Link
-              className="flex gap-[3px] text-text-green hover:underline"
-              href="https://yandex.ru/maps/org/aristomed/135703313008/?ll=30.402001%2C59.963379&z=13">
-              <Image src={phoneImg} alt="Телефон" />8 812 999 28 05
-            </Link>
-            <Button
-              variant={'tertiary'}
-              className="rounded-[30px] w-[244px] h-[40px] bg-opacity-75 text-[16px]">
-              Записаться на прием
-            </Button>
-          </div>
+                <HeaderDropDown triggerText={'СПОРТИВНАЯ МЕДИЦИНА'}>
+                  <SportsMedicineMenu />
+                </HeaderDropDown>
 
-          <div className="flex gap-[6px] justify-center absolute top-[35px] right-[47%]">
+                <HeaderDropDown triggerText={'УПРАВЛЕНИЕ ЗДОРОВЬЕМ'}>
+                  <HealthManagementMenu />
+                </HeaderDropDown>
+              </div>
+            </div>
+          </>
+        ) : (
+          <>
             <Link href={'/'}>
-              <Image src={telegram} alt="Телеграмм" />
+              <Image src={logo} width={140} height={18} alt="Логотип" className="h-[18px]" />
             </Link>
-            <Link href={'/'}>
-              <Image src={viber} alt="Вайбер" />
-            </Link>
-          </div>
+            <button onClick={() => setIsMobileMenuOpen(true)}>
+              <Image src={menu} alt='Меню'/>
+            </button>
 
-          <div className="flex gap-[30px]">
-            <HeaderDropDown triggerText={'МЕДИЦИНСКИЙ ЦЕНТР'}>
-              <MedicalCenterMenu />
-            </HeaderDropDown>
 
-            <HeaderDropDown triggerText={'СПОРТИВНАЯ МЕДИЦИНА'}>
-              <SportsMedicineMenu />
-            </HeaderDropDown>
-
-            <HeaderDropDown triggerText={'УПРАВЛЕНИЕ ЗДОРОВЬЕМ'}>
-              <HealthManagementMenu />
-            </HeaderDropDown>
-          </div>
-        </div>
+          </>
+        )}
       </div>
+      {isMobileMenuOpen && <HeaderMobileMenu handleClose={() => setIsMobileMenuOpen(false)} />}
+
     </header>
+
+
   );
 };

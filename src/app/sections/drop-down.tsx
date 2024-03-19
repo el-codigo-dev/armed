@@ -1,6 +1,7 @@
 'use client';
 
 import ArrowIcon from '@/components/ui/icons/arrow-icon';
+import { useWindowSize } from '@/hooks/useWindowSize';
 import classNames from 'classnames';
 import Link from 'next/link';
 import React, { useState } from 'react';
@@ -12,6 +13,9 @@ type DropdownProps = {
   maxHeight?: number;
   triggerTextStyles?: string;
   color?: string;
+  borderStyles?: string;
+  hasMainBorder?: boolean;
+  listStyles?: string;
 };
 
 export const DropDown = ({
@@ -20,9 +24,16 @@ export const DropDown = ({
   list,
   maxHeight,
   triggerTextStyles,
-  color
+  color,
+  borderStyles,
+  hasMainBorder,
+  listStyles
 }: DropdownProps) => {
   const [isMenuVisible, setMenuVisible] = useState(false);
+  const [windowWidth] = useWindowSize();
+
+
+
 
   const toggleMenu = () => {
     setMenuVisible(!isMenuVisible);
@@ -30,18 +41,18 @@ export const DropDown = ({
   // console.log(maxHeight);
 
   return (
-    <div className={`bord ${list && 'border-b-2'} border-custom-green`}>
+    <div className={`${hasMainBorder && 'border-b-2 border-custom-green'} `}>
       <span
         className={classNames(
           'flex cursor-pointer justify-between items-center rounded-[20px]',
-          list && 'pb-[30px]',
-          
+          // list && 'pb-[30px]',
+          borderStyles,
           color && isMenuVisible && `bg-${color}`
         )}
         onClick={toggleMenu}>
         <span
           className={classNames(
-            'font-semibold break-words text-[21px] leading-[25px]',
+            'break-words',
             triggerTextStyles,
             list && 'max-w-[255px]',
             color && isMenuVisible &&'text-custom-green'
@@ -49,8 +60,8 @@ export const DropDown = ({
           {triggerText}
         </span>
         <ArrowIcon
-          width={40}
-          height={20}
+          width={windowWidth > 1280 ? 40 : 20}
+          height={windowWidth > 1280 ? 20 : 10}
           color={!isMenuVisible && color || "#85A080"}
           className={` ml-2 transform transition-transform duration-200 ease-in-out ${
             isMenuVisible ? 'rotate-180' : ''
@@ -61,7 +72,8 @@ export const DropDown = ({
         (list ? (
           <ul
             className={classNames(
-              `flex flex-col flex-wrap gap-[15px] mb-[30px] overflow-hidden border-t-2 border-custom-green pt-[20px] border-opacity-20`, 
+              `flex flex-col flex-wrap gap-[15px] overflow-hidden mb-[30px]  border-opacity-20`, 
+              listStyles
             )}
             style={{ maxHeight: maxHeight && `${maxHeight}px` }}>
             {list?.map((item) => (

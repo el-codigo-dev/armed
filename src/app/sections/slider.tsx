@@ -71,7 +71,7 @@ const Slider = ({}) => {
           aria-current="true">asd</span>
       </div> */}
 
-      <div className="max-w-[1200px] min-h-[358px] w-full absolute  top-[33%] z-10 font-semibold text-[20px] text-white left-[50%] translate-x-[-50%]">
+      <div className="max-w-[1200px] min-h-[358px] w-full absolute  top-[33%] z-10 font-semibold text-[20px] text-white left-[50%] translate-x-[-50%] max-xl:px-[20px]">
         {/* {currentSlide === 0 && (
           <>
             <p>Управляйте своим здоровьем!</p>

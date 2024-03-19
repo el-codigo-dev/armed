@@ -7,7 +7,7 @@ export const WhyChooseCard = ({ card }: { card: { id: number; text: ReactNode; i
       <div className="w-[144px] h-[144px] flex justify-center items-center bg-white-default rounded-[15px] z-10">
         <Image src={card.img} alt="" />
       </div>
-      <div className="font-raleway flex flex-col absolute top-[44px] bg-card-color rounded-[20px] min-h-[264px] p-[30px]">
+      <div className="font-raleway flex flex-col absolute top-[44px] bg-card-color rounded-[20px] min-h-[264px] p-[30px] w-full">
         <span
           className="text-number-color font-semibold text-[36px] leading-[43px] mt-[80px]
          mb-[5px]">

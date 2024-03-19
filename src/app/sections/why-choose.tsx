@@ -72,12 +72,12 @@ export const whyChooseImg = [
 const WhyChoose = () => {
   return (
     <section className="bg-custom-green w-full text-white-default pt-[80px] pb-[80px]">
-      <div className="max-w-[1200px] w-full mx-auto flex gap-[45px]">
+      <div className="max-w-[1200px] w-full mx-auto flex gap-[45px] max-xl:px-[20px] max-xl:flex-col">
         <div>
-          <h2 className="uppercase text-[54px] leading-[65px] font-semibold max-w-[375px] mb-[15px] font-nextArt">
+          <h2 className="uppercase text-[54px] leading-[65px] font-semibold max-w-[375px] mb-[15px] font-nextArt max-xl:max-w-full">
             почему выбирают аристомед?
           </h2>
-          <p className="text-[32px] leading-[38px] font-medium max-w-[362px]">
+          <p className="text-[32px] leading-[38px] font-medium max-w-[362px] max-xl:max-w-full">
             Преимущества клиники
           </p>
         </div>
