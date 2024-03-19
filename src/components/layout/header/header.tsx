@@ -18,17 +18,15 @@ import { SportsMedicineMenu } from './sports-medicine-menu';
 import useScrollHandler from '@/hooks/use-scroll-handler';
 import classNames from 'classnames';
 import { HealthManagementMenu } from './health-management-menu';
-import { useWindowSize } from '@/hooks/useWindowSize';
+import { useWindowSize } from '@/hooks/use-window-size';
 import { useState } from 'react';
 import { HeaderMobileMenu } from './header-mobile-menu';
 
 export const Header = () => {
-const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const scrolled = useScrollHandler();
   const [windowWidth] = useWindowSize();
-
-
 
   return (
     <header
@@ -97,17 +95,12 @@ const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
               <Image src={logo} width={140} height={18} alt="Логотип" className="h-[18px]" />
             </Link>
             <button onClick={() => setIsMobileMenuOpen(true)}>
-              <Image src={menu} alt='Меню'/>
+              <Image src={menu} alt="Меню" />
             </button>
-
-
           </>
         )}
       </div>
       {isMobileMenuOpen && <HeaderMobileMenu handleClose={() => setIsMobileMenuOpen(false)} />}
-
     </header>
-
-
   );
 };
