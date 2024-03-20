@@ -124,7 +124,7 @@ const Slider = ({}) => {
         navigation={true}
         onSlideChange={(swiper) => handleSlideChange(swiper)}
         className={'w-[100%] h-[100vh]'}
-        direction={'vertical'}>
+        direction={windowWidth > 640 ? 'vertical' : 'horizontal'}>
         {slidesBackgorund.map((img) => (
           <SwiperSlide key={img.id}>
             <Image

@@ -91,7 +91,7 @@ const WhyChoose = () => {
         </ul>
       </div>
 
-      <ul className="flex gap-[10px] justify-center mt-[60px] max-xl:flex-col max-xl:self-center max-xl:mt-[30px]">
+      <ul className="flex gap-[10px] justify-center mt-[60px] max-lg:flex-col max-lg:self-center max-lg:mt-[30px]">
         {butonsArray.map((b) => (
           <li className="flex justify-center" key={b.id}>
             <Button variant={b.type}>{b.text}</Button>
