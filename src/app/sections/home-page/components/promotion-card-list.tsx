@@ -23,15 +23,15 @@ console.log(sales);
 
   return (
     <>
-      <ul className="grid grid-cols-3 gap-[19px]">
+      <ul className="grid grid-cols-3 gap-[19px] mb-[30px]">
         {sales?.map((sale: ISale) => (
           <PromotionCard sale={sale} key={sale._id} />
         ))}
       </ul>
-
-      <Button variant={'primary'} className="h-[56px] w-[305px] self-center mt-[30px]" onClick={() => setIsListOpen(!isListOpen)}>
+<div className='self-center'>
+      <Button variant={'primary'} onClick={() => setIsListOpen(!isListOpen)}>
        {isListOpen ? 'Скрыть' : ' Посмотреть все акции'}
-      </Button>
+      </Button></div>
     </>
   );
 };

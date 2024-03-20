@@ -18,10 +18,16 @@ export const FrequentQuestions = () => {
             <h2 className="h2-text-white max-w-[344px] mb-[4px]">частые вопросы</h2>
 
             <div className="border-b-[2px] border-white-default pb-[19px]">
+
               <DropDown
+
+
+
                 triggerText={'Чем Аристомед отличается от других клиник?'}
-                triggerTextStyles={'text-drop-down px-[30px] py-[18px] rounded-[20px]'}
-                color={'white'}>
+                type={'questions'}
+                
+                
+                >
                 <div className="text-default-16 px-[30px] mt-[15px]">
                   <p className="mb-[30px]">
                     Ориентируемся на раннее выявление, профилактику развития болезней, составляем
@@ -40,8 +46,8 @@ export const FrequentQuestions = () => {
             <div className="border-b-[2px] border-white-default pb-[19px]">
               <DropDown
                 triggerText={'Что такое лечение полного цикла?'}
-                triggerTextStyles={'text-drop-down px-[30px] py-[18px] rounded-[20px]'}
-                color={'white'}>
+                type={'questions'}
+>
                 <div className="text-default-16 px-[30px] mt-[15px]">
                   <p className="mb-[10px]">
                     Занимаемся состоянием пациента в целом, лечим не только конкретную болезнь.
@@ -57,8 +63,8 @@ export const FrequentQuestions = () => {
             <div className="border-b-[2px] border-white-default pb-[19px]">
               <DropDown
                 triggerText={'Что такое медориентирование?'}
-                triggerTextStyles={'text-drop-down px-[30px] py-[18px] rounded-[20px]'}
-                color={'white'}>
+                type={'questions'}
+>
                 <div className="text-default-16 px-[30px] mt-[15px]">
                   <p className="mb-[10px]">
                     Это помощь в поиске врача или организации, где помогут решить проблему со
@@ -80,9 +86,10 @@ export const FrequentQuestions = () => {
             </div>
           </div>
         </div>
-        <Button variant={'secondary'} className="w-[291px] h-[56px] place-self-center mt-[60px]">
+        <div className='place-self-center mt-[60px]'>
+        <Button variant={'secondary'}>
           Записаться на прием
-        </Button>
+        </Button></div>
       </div>
     </section>
   );

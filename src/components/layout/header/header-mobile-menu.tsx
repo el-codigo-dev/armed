@@ -17,47 +17,28 @@ import {
 import { DropDown } from '@/app/sections/drop-down';
 import { Button } from '@/components/ui/button';
 import { useEffect, useRef } from 'react';
+import { useAppDispatch } from '@/store/store';
+import { toggleMobileMenuOpen } from '@/store/mainSlice';
 
-export const HeaderMobileMenu = ({ handleClose }: { handleClose: () => void }) => {
+export const HeaderMobileMenu = () => {
+  const dispatch = useAppDispatch();
 
-
-
-
-
-
-    // useEffect(() => {
-    //     // Блокировка скролла на основной странице при открытом мобильном меню
-    //     document.body.style.overflow = 'hidden';
-    //     return () => {
-    //       // Восстановление скролла на основной странице при закрытии мобильного меню
-    //       document.body.style.overflow = 'unset';
-    //     };
-    //   }, []);
-
-    // const menuRef = useRef(null);
-
-    // useEffect(() => {
-    //   if (menuRef.current) {
-    //     menuRef.current.focus();
-    //   }
-    // }, []);
-
+  const handleOpenModal = () => {
+    dispatch(toggleMobileMenuOpen());
+  };
 
   return (
-    <div className="fixed w-full bg-white-default top-0 left-0 pt-[40px]      overflow-y-scroll min-h-[100vh]"
-    // tabIndex={-1}
-    // ref={menuRef}
+    <div
+      className="fixed w-full bg-custom-gray top-0 left-0 pt-[40px]      overflow-scroll h-full"
+      // tabIndex={-1}
+      // ref={menuRef}
     >
-      <div className="max-w-[1200px] w-full mx-auto px-[20px] h-full overflow-y-scroll">
-
-
-
-
+      <div className="max-w-[1200px] w-full mx-auto px-[20px]">
         <div className="flex justify-between ">
-          <Link href={'/'} className='flex items-center'>
+          <Link href={'/'} className="flex items-center">
             <Image src={logo} width={140} height={18} alt="Логотип" className="h-[18px]" />
           </Link>
-          <button onClick={handleClose}>
+          <button onClick={handleOpenModal}>
             <Image src={close} alt="Закрыть" />
           </button>
         </div>
@@ -76,29 +57,25 @@ export const HeaderMobileMenu = ({ handleClose }: { handleClose: () => void }) =
         </span>
 
         <div className="mt-[94px] flex flex-col gap-[10px]">
-          <DropDown
-            triggerText={'Медицинский центр'}
-            triggerTextStyles={'text-[20px] font-medium leading-[24px]'}
-            borderStyles={'border-b-[1px] border-custom-green rounded-[0] pb-[5px]'}>
+          <DropDown triggerText={'Медицинский центр'} type={'header'}>
             <div className="flex flex-col my-[10px]">
               <DropDown
                 triggerText={'Консультации врачей-специалистов:'}
                 list={specialistDoctors}
-                triggerTextStyles={'text-[16px] font-normal leading-[19px] underline pb-[15px]'}
-                listStyles={'pl-[17px] font-normal text-[14px] leading-[17px]'}
+                type={'headerV2'}
               />
 
               <DropDown
                 triggerText={'Детские программы:'}
                 list={childrensPrograms}
-                triggerTextStyles={'text-[16px] font-normal leading-[19px] underline pb-[15px]'}
-                listStyles={'pl-[17px] font-normal text-[14px] leading-[17px]'}
+                type={'headerV2'}
+
               />
               <DropDown
                 triggerText={'Анализы и диагностика:'}
                 list={analysisAndDiagnostics}
-                triggerTextStyles={'text-[16px] font-normal leading-[19px] underline pb-[15px]'}
-                listStyles={'pl-[17px] font-normal text-[14px] leading-[17px]'}
+                type={'headerV2'}
+
               />
 
               <ul className="flex flex-col flex-wrap gap-[15px] font-semibold">
@@ -106,7 +83,7 @@ export const HeaderMobileMenu = ({ handleClose }: { handleClose: () => void }) =
                   <li className="" key={direction.id}>
                     <Link
                       href={direction.link}
-                      className="text-[16px] font-normal leading-[19px] pb-[15px]">
+                      className="text-[16px] font-normal leading-[19px]">
                       {direction.speciality}
                     </Link>
                   </li>
@@ -115,23 +92,18 @@ export const HeaderMobileMenu = ({ handleClose }: { handleClose: () => void }) =
             </div>
           </DropDown>
 
-          <DropDown
-            triggerText={'Спортивная медицина'}
-            triggerTextStyles={'text-[20px] font-medium leading-[24px]'}
-            borderStyles={'border-b-[1px] border-custom-green rounded-[0] pb-[5px]'}>
+          <DropDown triggerText={'Спортивная медицина'} type={'header'}>
             <div className="flex flex-col my-[10px]">
               <DropDown
                 triggerText={'Услуги и специалисты:'}
                 list={servicesedAndSpecialists}
-                triggerTextStyles={'text-[16px] font-normal leading-[19px] underline pb-[15px]'}
-                listStyles={'pl-[17px] font-normal text-[14px] leading-[17px]'}
+                type={'headerV2'}
               />
 
               <DropDown
                 triggerText={'Функциональные обследования:'}
                 list={functionalExaminations}
-                triggerTextStyles={'text-[16px] font-normal leading-[19px] underline pb-[15px]'}
-                listStyles={'pl-[17px] font-normal text-[14px] leading-[17px]'}
+                type={'headerV2'}
               />
 
               <Link href={'/'} className="text-[16px] font-normal leading-[19px] pb-[15px]">
@@ -140,27 +112,31 @@ export const HeaderMobileMenu = ({ handleClose }: { handleClose: () => void }) =
             </div>
           </DropDown>
 
-          <DropDown
-            triggerText={'Управление здоровьем'}
-            triggerTextStyles={'text-[20px] font-medium leading-[24px]'}
-            borderStyles={'border-b-[1px] border-custom-green rounded-[0] pb-[5px]'}>
+          <DropDown triggerText={'Управление здоровьем'} type={'header'}>
             <div className="flex flex-col my-[10px]">
-
-
               <DropDown
                 triggerText={'Комплексные программы'}
                 list={cardioPrograms}
-                triggerTextStyles={'text-[16px] font-normal leading-[19px] underline pb-[15px]'}
-                listStyles={'pl-[17px] font-normal text-[14px] leading-[17px]'}
+                type={'headerV2'}
               />
-
-</div>
-
+            </div>
           </DropDown>
 
-
-          <Button className='text-button-color w-[226px] h-[24px] font-medium text-[20px] leading-[24px]' variant={'transparent'}>Записаться на прием</Button>
+          <Button
+            className=" w-[226px] h-[24px] font-medium text-[20px] leading-[24px]"
+            variant={'transparent'}>
+            Записаться на прием
+          </Button>
         </div>
+
+        <ul className="flex flex-col gap-[10px] pt-[233px] pb-[99px] text-default-16 text-header-links">
+          <li>
+            <Link href={'/'}>О центре</Link>
+          </li>
+          <li>
+            <Link href={'/'}>Контакты</Link>
+          </li>
+        </ul>
       </div>
     </div>
   );

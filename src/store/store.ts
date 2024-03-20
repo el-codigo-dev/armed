@@ -2,9 +2,11 @@ import { combineReducers } from 'redux';
 import { mainApi } from '../api/mainApi';
 import { configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+import { mainSlice } from './mainSlice';
 
 export const rootReducer = combineReducers({
   [mainApi.reducerPath]: mainApi.reducer,
+  main: mainSlice.reducer,
 });
 
 export const store = configureStore({

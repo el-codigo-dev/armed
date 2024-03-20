@@ -6,6 +6,7 @@ import monitor from '@/assets/images/why-choose/monitor.svg';
 import parking from '@/assets/images/why-choose/parking.svg';
 import synergy from '@/assets/images/why-choose/synergy.svg';
 import time from '@/assets/images/why-choose/time.svg';
+import { butonsArray } from '@/utils/constants';
 
 export const whyChooseImg = [
   {
@@ -52,7 +53,7 @@ export const whyChooseImg = [
     id: 5,
     text: (
       <span>
-        <span className="text-custom-green font-bold">Экономия времени</span> и 
+        <span className="text-custom-green font-bold">Экономия времени</span> и
         <span className="text-custom-green font-bold"> оптимизация процесса </span>лечения за счет
         сопровождения пациента
       </span>
@@ -65,44 +66,38 @@ export const whyChooseImg = [
       <span>
         <span className="text-custom-green font-bold">Бесплатная парковка </span>для пациентов
       </span>
-    ),    img: time,
+    ),
+    img: time,
   },
 ];
 
 const WhyChoose = () => {
   return (
-    <section className="bg-custom-green w-full text-white-default pt-[80px] pb-[80px]">
-      <div className="max-w-[1200px] w-full mx-auto flex gap-[45px] max-xl:px-[20px] max-xl:flex-col">
+    <section className="bg-custom-green w-full text-white-default py-[80px] max-xl:py-[60px] flex flex-col">
+      <div className="max-w-[1200px] w-full mx-auto flex gap-[45px] max-xl:px-[20px] max-xl:flex-col max-xl:gap-[20px]">
         <div>
-          <h2 className="uppercase text-[54px] leading-[65px] font-semibold max-w-[375px] mb-[15px] font-nextArt max-xl:max-w-full">
+          <h2 className="h2-text-white max-w-[375px] mb-[15px] font-nextArt max-xl:max-w-full max-xl:mb-[5px]">
             почему выбирают аристомед?
           </h2>
-          <p className="text-[32px] leading-[38px] font-medium max-w-[362px] max-xl:max-w-full">
+          <p className="text-default-32 max-w-[362px] max-xl:max-w-[150px] ">
             Преимущества клиники
           </p>
         </div>
 
-        <ul className="grid grid-cols-3 gap-[20px] w-full">
+        <ul className="grid grid-cols-3 gap-[20px] w-full max-lg:grid-cols-1 ">
           {whyChooseImg.map((item) => (
             <WhyChooseCard card={item} key={item.id} />
           ))}
         </ul>
       </div>
 
-      <div className="flex gap-[10px] justify-center mt-[60px]">
-        <Button variant={'primary'} className="w-[291px] h-[56px]">
-          Записаться на прием
-        </Button>
-        <Button variant={'secondary'} className="w-[234px] h-[56px]">
-          Заказать звонок
-        </Button>
-        <Button variant={'secondary'} className="w-[214px] h-[56px]">
-          Задать вопрос
-        </Button>
-        <Button variant={'secondary'} className="w-[221px] h-[56px]">
-          Доктор онлайн
-        </Button>
-      </div>
+      <ul className="flex gap-[10px] justify-center mt-[60px] max-xl:flex-col max-xl:self-center max-xl:mt-[30px]">
+        {butonsArray.map((b) => (
+          <li className="flex justify-center" key={b.id}>
+            <Button variant={b.type}>{b.text}</Button>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 };

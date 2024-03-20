@@ -1,12 +1,17 @@
+'use client';
+
 import Image from 'next/image';
 import { Button } from '../ui/button';
 import footerImg from '@/assets/images/footerLogo.svg';
 import { requisites, socials } from '@/utils/constants';
 import Link from 'next/link';
+import { useAppSelector } from '@/store/store';
 
 export const Footer = () => {
+  const isMobileMenuOpen = useAppSelector((store) => store.main.isMobileMenuOpen);
+
   return (
-    <footer className="w-full py-[80px]">
+    <footer className={`w-full py-[80px] ${isMobileMenuOpen && 'hidden'}`}>
       <div className="flex max-w-[1200px] w-full mx-auto justify-between gap-[26px]">
         <div className="w-[570px] h-[718px] bg-[#C4C4C4]"></div>
         {/* <Image
@@ -68,11 +73,18 @@ export const Footer = () => {
           <Button variant={'tertiary'} className="w-[290px] h-[56px] rounded-[46px]">
             Заказать обратный звонок
           </Button>
-          <div className='flex flex-col gap-[20px] text-[12px] leading-[16px] font-medium text-footer-info mt-[50px]'>
-          <p>Данный веб-сайт использует файлы cookie с целью улучшения качества услуг и анализа особенностей работы пользователей в Интернете. </p>
+          <div className="flex flex-col gap-[20px] text-[12px] leading-[16px] font-medium text-footer-info mt-[50px]">
+            <p>
+              Данный веб-сайт использует файлы cookie с целью улучшения качества услуг и анализа
+              особенностей работы пользователей в Интернете.{' '}
+            </p>
 
-          <p>Если Вы продолжаете пользоваться веб-сайтом, это значит, что Вы даете Согласие на обработку персональных данных и принимаете нашу Политику обработки персональных данных</p>
-        </div></div>
+            <p>
+              Если Вы продолжаете пользоваться веб-сайтом, это значит, что Вы даете Согласие на
+              обработку персональных данных и принимаете нашу Политику обработки персональных данных
+            </p>
+          </div>
+        </div>
       </div>
     </footer>
   );

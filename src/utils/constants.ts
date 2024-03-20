@@ -340,3 +340,32 @@ export const socials = [
 
   },
 ];
+
+interface IButton {
+  id: number;
+  text: string;
+  type: "primary" | "secondary" | "tertiary" | "transparent";
+}
+
+export const butonsArray: IButton[] = [
+  {
+    id: 1,
+    text: 'Записаться на прием',
+    type: 'primary'
+  },
+  {
+    id: 2,
+    text: 'Заказать звонок',
+    type: 'secondary'
+  },
+  {
+    id: 3,
+    text: 'Задать вопрос',
+    type: 'secondary'
+  },
+  {
+    id: 4,
+    text: 'Доктор онлайн',
+    type: 'secondary'
+  },
+];

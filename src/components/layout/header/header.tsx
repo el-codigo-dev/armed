@@ -21,13 +21,22 @@ import { HealthManagementMenu } from './health-management-menu';
 import { useWindowSize } from '@/hooks/use-window-size';
 import { useState } from 'react';
 import { HeaderMobileMenu } from './header-mobile-menu';
+import { useAppDispatch, useAppSelector } from '@/store/store';
+import { toggleMobileMenuOpen } from '@/store/mainSlice';
 
 export const Header = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+
+  const isMobileMenuOpen = useAppSelector(store => store.main.isMobileMenuOpen)
+  const dispatch = useAppDispatch()
 
   const scrolled = useScrollHandler();
   const [windowWidth] = useWindowSize();
 
+
+  const handleOpenModal = () => {
+    dispatch(toggleMobileMenuOpen())
+  }
   return (
     <header
       className={classNames(
@@ -60,7 +69,7 @@ export const Header = () => {
                 </Link>
                 <Button
                   variant={'tertiary'}
-                  className="rounded-[30px] w-[244px] h-[40px] bg-opacity-75 text-[16px]">
+                  className="">
                   Записаться на прием
                 </Button>
               </div>
@@ -94,13 +103,13 @@ export const Header = () => {
             <Link href={'/'}>
               <Image src={logo} width={140} height={18} alt="Логотип" className="h-[18px]" />
             </Link>
-            <button onClick={() => setIsMobileMenuOpen(true)}>
+            <button onClick={handleOpenModal}>
               <Image src={menu} alt="Меню" />
             </button>
           </>
         )}
       </div>
-      {isMobileMenuOpen && <HeaderMobileMenu handleClose={() => setIsMobileMenuOpen(false)} />}
+      {isMobileMenuOpen && <HeaderMobileMenu />}
     </header>
   );
 };

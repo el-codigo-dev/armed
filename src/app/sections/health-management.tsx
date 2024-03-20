@@ -23,7 +23,7 @@ export const HealthManagement = () => {
             Для контроля за развитием заболеваний или отслеживанием состояния пациента используются:
           </p>
 
-          <ul className='flex flex-col gap-[15px] list-disc pl-[20px] text-default-16'>
+          <ul className="flex flex-col gap-[15px] list-disc pl-[20px] text-default-16">
             <li>
               индивидуальные программы обследования, которые разрабатываются личным врачом под
               задачи пациента,
@@ -34,10 +34,9 @@ export const HealthManagement = () => {
               функциональных и инструментальных методов 
             </li>
           </ul>
-
-          <Button variant={'primary'} className="w-[291px] h-[56px] mt-auto">
-            Записаться на прием
-          </Button>
+          <div className="mt-auto">
+            <Button variant={'primary'}>Записаться на прием</Button>
+          </div>
         </div>
       </div>
     </section>

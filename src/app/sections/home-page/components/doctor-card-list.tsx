@@ -47,9 +47,10 @@ export const DoctorCardList = () => {
               />
               <div className="h-[250px] bg-card-color round-bl-[20px]  p-[21px] flex flex-col">
                 <h3 className="text-doctor-name mb-[15px]">
-                  {doctor.name}
+                  {doctor.surname}
+
                   <p>
-                    {doctor.surname} {doctor.middle_name}
+                    {doctor.name} {doctor.middle_name}
                   </p>
                 </h3>
                 <p className="text-normal-18">
@@ -63,9 +64,9 @@ export const DoctorCardList = () => {
                       .join(', ')}
                   .
                 </p>
-                <Button variant={'secondary'} className="w-[181px] h-[56px] mt-[auto] self-start">
-                  Подробнее
-                </Button>
+                <div className="mt-[auto] self-start">
+                  <Button variant={'secondary'}>Подробнее</Button>
+                </div>
               </div>
             </SwiperSlide>
           ))}

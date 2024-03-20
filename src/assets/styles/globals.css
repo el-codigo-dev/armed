@@ -7,11 +7,13 @@
 
 @layer utilities {
   .h2-text-black {
-    @apply font-nextArt font-semibold text-custom-black text-[54px] leading-[65px];
+    @apply font-nextArt font-semibold text-custom-black text-[54px] leading-[65px]
+    max-sm:text-[26px] max-sm:leading-[28px];
   }
 
   .h2-text-white {
-    @apply font-nextArt font-semibold text-white-default text-[54px] leading-[65px];
+    @apply font-nextArt font-semibold text-white-default text-[54px] leading-[65px]
+    max-sm:text-[26px] max-sm:leading-[28px];
   }
 
   .text-default-16 {
@@ -27,20 +29,53 @@
   }
 
   .text-default-32 {
-    @apply  text-[32px] leading-[38px] font-medium;
+    @apply text-[32px] leading-[38px] font-medium
+    max-sm:text-[20px] max-sm:leading-[24px];
   }
 
   .text-doctor-name {
-    @apply  text-[21px] leading-[28px] font-bold;
+    @apply text-[21px] leading-[28px] font-bold;
   }
 
   .text-drop-down {
-    @apply  text-[24px] leading-[29px] font-semibold;
+    @apply text-[24px] leading-[29px] font-semibold;
   }
 
   .text-footer-groups {
-    @apply  text-[21px] leading-[28px] font-semibold
+    @apply text-[21px] leading-[28px] font-semibold;
+  }
 
+  .text-slider-header {
+    @apply font-nextArt text-[48px] leading-[52px] font-semibold
+    max-sm:text-[26px] max-sm:leading-[31px];
+  }
+
+  .text-slider {
+    @apply text-[20px] leading-[21px] font-semibold
+    max-sm:text-[16px] max-sm:leading-[16px] max-sm:font-medium;
+  }
+  .text-trigger {
+    @apply font-semibold text-[21px] leading-[25px]
+    max-sm:text-[14px] max-sm:leading-[17px];
+  }
+
+  .text-list {
+    @apply font-medium text-[21px] leading-[25px]
+    max-sm:text-[14px] max-sm:leading-[17px];
+  }
+
+  .text-header-drop {
+    @apply text-[20px] leading-[24px] font-medium;
+  }
+
+  .text-numbered {
+    @apply font-raleway font-semibold text-[36px] leading-[43px]
+ max-lg:text-[26px] max-lg:leading-[31px];
+  }
+
+  .text-button {
+    @apply text-[21px] font-semibold leading-[25px]
+    max-sm:text-[16px] max-sm:leading-[19px];
   }
 }
 

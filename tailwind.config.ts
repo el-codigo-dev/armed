@@ -31,7 +31,17 @@ const config: Config = {
         'number-color': '#B16BF766',
         'card-color': '#DEDEDE',
         'secondary-button-color': '#B3C833',
-        'footer-info': '#8B8B8B'
+        'footer-info': '#8B8B8B',
+        'header-links': '#939393'
+      },
+      keyframes: {
+        fadeInHeight: {
+          '0%': { height: '0' },
+          '100%': { height: '100%' },
+        },
+      },
+      animation: {
+        fadeInHeight: 'fadeInHeight 5.2s linear',
       },
     },
   },
