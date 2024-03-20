@@ -67,7 +67,7 @@ export const Directions = () => {
           </div>
         </div>
 
-        <div className="max-w-[589px] w-full min-h-[640px] flex flex-col gap-[20px] max-xl:max-w-full max-sm:min-h-[auto]">
+        <div className="max-w-[589px] w-full flex flex-col gap-[20px] max-xl:max-w-full">
           <div className="flex flex-col p-10 gap-[30px] bg-white-default rounded-[25px] pb-[30px] min-h-[445px] max-sm:p-0 max-sm:bg-transparent max-sm:gap-[10px] max-sm:min-h-[auto]">
             <h3 className="text-default-32 text-custom-green">Спортивная медицина</h3>
             <DropDown
