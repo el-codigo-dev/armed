@@ -67,7 +67,7 @@ export const DropDown = ({
       } `,
       text: `text-drop-down  rounded-[20px] ${isMenuVisible && 'text-custom-green'} `,
       arrow: {
-        default: '#85A080',
+        default: 'white',
         opened: '#85A080',
       },
       list: '',
@@ -78,8 +78,8 @@ export const DropDown = ({
       trigerFrame: '',
       text: 'text-trigger pb-[30px] max-sm:py-[10px] max-sm:px-[15px] max-w-[260px] break-word',
       arrow: {
-        default: '',
-        opened: '',
+        default: '#85A080',
+        opened: '#85A080',
       },
       list: 'border-t-2 border-custom-green pt-[20px] mb-[30px] ',
       link: 'max-w-[260px]',
@@ -89,8 +89,8 @@ export const DropDown = ({
       trigerFrame: '',
       text: 'text-custom-green text-default-32',
       arrow: {
-        default: '',
-        opened: '',
+        default: '#85A080',
+        opened: '#85A080',
       },
       list: 'mb-[30px] ',
       link: 'max-w-[260px]',
