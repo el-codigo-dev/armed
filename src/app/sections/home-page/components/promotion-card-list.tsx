@@ -4,34 +4,52 @@ import { useFetchSalesQuery } from '@/api/mainApi';
 import { PromotionCard } from '@/app/sections/home-page/components/promotion-card';
 import { Button } from '@/components/ui/button';
 import { ISale } from '@/types/apiTypes';
+import Image from 'next/image';
 
 import { useState } from 'react';
-
-
+import { Swiper, SwiperSlide } from 'swiper/react';
+import backIcon from '@/assets/images/doctors/prev.svg';
+import forwardIcon from '@/assets/images/doctors/next.svg';
+import { Navigation } from 'swiper/modules';
+import { useWindowSize } from '@/hooks/use-window-size';
 
 export const PromotionCardList = () => {
-
-const [isListOpen, setIsListOpen] = useState(false)
-
-
   const { data } = useFetchSalesQuery('');
 
+  const [windowWidth] = useWindowSize()
+  // max-md
 
-  
-const sales = isListOpen ? data : data?.slice(0, 3)
-console.log(sales);
 
   return (
-    <>
-      <ul className="grid grid-cols-3 gap-[19px] mb-[30px]">
-        {sales?.map((sale: ISale) => (
-          <PromotionCard sale={sale} key={sale._id} />
+    <div className='relative max-md:px-[40px]'>
+      <Swiper
+        spaceBetween={20}
+        slidesPerView={ windowWidth > 1024 ? 3 : windowWidth > 768 ? 2 : 1 }
+        modules={[Navigation]}
+        navigation={{
+          prevEl: '.swiper-button-prev',
+          nextEl: '.swiper-button-next',
+        }}
+        loop={true}
+        pagination={{ clickable: true }}
+        // onSlideChange={(swiper) => handleSlideChange(swiper)}
+        className={'w-[100%]'}
+        direction={'horizontal'}>
+        {data?.map((promo: ISale) => (
+          <SwiperSlide key={promo._id} className="h-full">
+            <PromotionCard sale={promo} key={promo._id} />
+          </SwiperSlide>
         ))}
-      </ul>
-<div className='self-center'>
-      <Button variant={'primary'} onClick={() => setIsListOpen(!isListOpen)}>
-       {isListOpen ? 'Скрыть' : ' Посмотреть все акции'}
-      </Button></div>
-    </>
+      </Swiper>
+
+      <div className="flex gap-[30px] justify-center mt-[40px] max-md:absolute max-md:top-[50%] z-10 max-md:w-full max-md:justify-between max-md:m-0 max-md:left-0">
+        <button className="swiper-button-prev cursor-pointer">
+          <Image src={backIcon} alt="Назад" />
+        </button>
+        <button className="swiper-button-next cursor-pointer">
+          <Image src={forwardIcon} alt="Вперед" />
+        </button>
+      </div>
+    </div>
   );
 };

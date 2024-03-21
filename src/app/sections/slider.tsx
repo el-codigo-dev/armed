@@ -82,16 +82,6 @@ const Slider = ({}) => {
 
   const [windowWidth] = useWindowSize();
 
-  const handleSlideChange = (swiper: any) => {
-    setCurrentSlide(swiper.realIndex);
-  };
-
-  const handlePaginationClick = (index: number) => {
-    setCurrentSlide(index);
-
-    swiper && swiper.slideTo(index);
-  };
-
   const renderPaginationButtons = () => {
     const buttons = [];
     for (let i = 0; i < totalSlides; i++) {
@@ -112,6 +102,17 @@ const Slider = ({}) => {
     }
     return buttons;
   };
+
+  const handleSlideChange = (swiper: any) => {
+    setCurrentSlide(swiper.realIndex);
+  };
+
+  const handlePaginationClick = (index: number) => {
+    setCurrentSlide(index);
+
+    swiper && swiper.slideTo(index);
+  };
+
 
   return (
     <section className="w-[100%] h-[100vh] relative bg-black">
@@ -136,7 +137,7 @@ const Slider = ({}) => {
         ))}
       </Swiper>
 
-      <div className="max-w-[1200px] min-h-[358px] w-full absolute top-[33%] z-10  text-white left-[50%] translate-x-[-50%] max-xl:px-[20px] text-slider flex  max-sm:top-[50%] items-center max-sm:flex-col-reverse max-sm:items-start">
+      <div className="max-w-[1200px] min-h-[358px] w-full absolute top-[33%] z-10  text-white left-[50%] translate-x-[-50%] max-xl:px-[20px] text-slider flex  max-sm:bottom-[60px] items-center max-sm:flex-col-reverse max-sm:items-start">
         <div className="pagination-container mr-[15px] flex flex-col gap-[19px] max-sm:mt-[68px] max-sm:flex-row max-sm:self-center">
           {renderPaginationButtons()}
         </div>

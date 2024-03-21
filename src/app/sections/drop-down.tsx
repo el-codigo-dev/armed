@@ -60,19 +60,29 @@ export const DropDown = ({
       list: '',
       link: 'max-w-[260px]',
     },
+
+
+
+
+
     questions: {
       container: '',
-      trigerFrame: `rounded-[20px] pr-[20px] pl-[30px] py-[18px] ${
+      trigerFrame: `rounded-[20px] pr-[20px] pl-[30px] py-[18px] max-sm:py-[15px] max-sm:pr-[10px] max-sm:pl-[9px] ${
         isMenuVisible && 'bg-white-default '
       } `,
-      text: `text-drop-down  rounded-[20px] ${isMenuVisible && 'text-custom-green'} `,
+      text: `text-drop-down rounded-[20px] ${isMenuVisible && 'text-custom-green'} max-sm:max-w-[200px]`,
       arrow: {
         default: 'white',
         opened: '#85A080',
       },
       list: '',
-      link: 'max-w-[260px]',
+      link: 'max-w-[260px] ',
     },
+
+
+
+
+
     directions: {
       container: 'border-b-2 border-custom-green',
       trigerFrame: '',
@@ -131,7 +141,7 @@ export const DropDown = ({
     <div className={dropDownStyles[type]?.container}>
       <span
         className={classNames(
-          'flex cursor-pointer justify-between items-center',
+          'flex cursor-pointer justify-between items-center gap-[8px]',
           // list && 'pb-[30px]',
           borderStyles,
           color && 'rounded-[20px]',
@@ -152,12 +162,20 @@ export const DropDown = ({
           {triggerText}
         </span>
         <ArrowIcon
-          width={windowWidth > 1280 ? 40 : 20}
-          height={windowWidth > 1280 ? 20 : 10}
+          width={
+            // windowWidth > 1280 ? 
+            40
+            //  : 20
+          }
+          height={
+            // windowWidth > 1280 ? 
+            20 
+            // : 10
+          }
           color={
             isMenuVisible ? dropDownStyles[type]?.arrow.opened : dropDownStyles[type]?.arrow.default
           }
-          className={` ml-2 transform transition-transform duration-200 ease-in-out ${
+          className={`transform transition-transform duration-200 ease-in-out ${
             isMenuVisible ? 'rotate-180 ' : ''
           }`}
         />

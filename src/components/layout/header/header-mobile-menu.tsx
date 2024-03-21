@@ -123,7 +123,6 @@ export const HeaderMobileMenu = () => {
           </DropDown>
 
           <Button
-            className=" w-[226px] h-[24px] font-medium text-[20px] leading-[24px]"
             variant={'transparent'}>
             Записаться на прием
           </Button>

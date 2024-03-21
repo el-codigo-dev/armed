@@ -18,7 +18,7 @@ export const Directions = () => {
   const [windowWidth] = useWindowSize();
 
   return (
-    <section className="max-w-[1200px] w-full mx-auto flex flex-col text-custom-black mt-[80px] max-xl:px-[20px] max-xl:mt-[60px]">
+    <section className="max-w-[1200px] w-full mx-auto flex flex-col text-custom-black mt-[80px] max-xl:px-[20px] max-sl:mt-[60px]">
       <h2
         className="
       h2-text-black tracking-tighter mb-[30px] max-sm:mb-[15px]">

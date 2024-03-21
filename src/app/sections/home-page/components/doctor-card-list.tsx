@@ -11,17 +11,17 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import backIcon from '@/assets/images/doctors/prev.svg';
 import forwardIcon from '@/assets/images/doctors/next.svg';
+import { useWindowSize } from '@/hooks/use-window-size';
 
 export const DoctorCardList = () => {
   const { data: doctors } = useFetchDoctorsQuery('');
-
-  console.log(doctors);
+  const [windowWidth] = useWindowSize();
 
   return (
-    <>
+    <div className="relative max-md:px-[40px]">
       <Swiper
         spaceBetween={20}
-        slidesPerView={3}
+        slidesPerView={windowWidth > 1024 ? 3 : windowWidth > 640 ? 2 : 1}
         // slidesPerGroup={1}
 
         modules={[Navigation]}
@@ -43,7 +43,7 @@ export const DoctorCardList = () => {
                 width={387}
                 height={300}
                 alt={doctor.name}
-                className="w-[387px] h-[300px] object-cover"
+                className="w-full h-[300px] object-cover"
               />
               <div className="h-[250px] bg-card-color round-bl-[20px]  p-[21px] flex flex-col">
                 <h3 className="text-doctor-name mb-[15px]">
@@ -53,7 +53,7 @@ export const DoctorCardList = () => {
                     {doctor.name} {doctor.middle_name}
                   </p>
                 </h3>
-                <p className="text-normal-18">
+                <p className="text-normal-18 opacity-50">
                   {doctor.post ||
                     doctor.medicine_directions
                       .map((dir, index) =>
@@ -72,14 +72,14 @@ export const DoctorCardList = () => {
           ))}
       </Swiper>
 
-      <div className="flex gap-[30px] justify-center mt-[40px]">
-        <div className="swiper-button-prev cursor-pointer">
+      <div className="flex gap-[30px] justify-center mt-[40px] max-md:absolute max-md:top-[50%] z-10 max-md:w-full max-md:justify-between max-md:m-0 max-md:left-0">
+        <button className="swiper-button-prev cursor-pointer">
           <Image src={backIcon} alt="Назад" />
-        </div>
-        <div className="swiper-button-next cursor-pointer">
+        </button>
+        <button className="swiper-button-next cursor-pointer">
           <Image src={forwardIcon} alt="Вперед" />
-        </div>
+        </button>
       </div>
-    </>
+    </div>
   );
 };

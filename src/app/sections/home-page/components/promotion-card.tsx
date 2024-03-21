@@ -5,10 +5,7 @@ import { baseUrl } from '@/utils/config';
 export const PromotionCard = ({ sale, }: { sale: ISale}) => {
   return (
     <li
-      className="flex bg-card-color  p-[25px] rounded-[20px] flex-col
-    
-    
-    ">
+      className="flex bg-card-color  p-[25px] rounded-[20px] flex-col h-[500px]">
       <img
         src={baseUrl + sale.image}
         alt="Узи"
@@ -16,8 +13,8 @@ export const PromotionCard = ({ sale, }: { sale: ISale}) => {
       />
 
       <div className="mt-[25px] flex flex-col">
-        <h3 className="font-bold text-[20px] leading-[30px] mb-[10px]">{sale.title}</h3>
-        <p className="font-medium text-[16px] leading-[20px] mb-[15px] opacity-50">{sale.dates}</p>
+        <h3 className="text-promotion-header  mb-[10px]">{sale.title}</h3>
+        <p className="text-default-16 mb-[15px] opacity-50">{sale.dates}</p>
 
         {/* <div className="flex gap-[15px] items-center mb-[20px]">
         <span className="text-custom-green text-[24px] font-bold">7 000 ₽</span>
@@ -28,9 +25,10 @@ export const PromotionCard = ({ sale, }: { sale: ISale}) => {
 
 
       </div>
-      <Button variant={'secondary'} className="w-[181px] h-[56px] self-center mt-auto">
+      <div className='self-center mt-auto'>
+      <Button variant={'secondary'}>
           Подробнее
-        </Button>
+        </Button></div>
     </li>
   );
 };

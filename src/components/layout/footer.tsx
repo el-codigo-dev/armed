@@ -11,20 +11,23 @@ export const Footer = () => {
   const isMobileMenuOpen = useAppSelector((store) => store.main.isMobileMenuOpen);
 
   return (
-    <footer className={`w-full py-[80px] ${isMobileMenuOpen && 'hidden'}`}>
-      <div className="flex max-w-[1200px] w-full mx-auto justify-between gap-[26px]">
-        <div className="w-[570px] h-[718px] bg-[#C4C4C4]"></div>
+    <footer className={`w-full py-[80px] ${isMobileMenuOpen && 'hidden'} max-xl:pb-[60px] max-xl:pt-[100px] relative` }>
+      <div className="flex max-w-[1200px] w-full mx-auto justify-between gap-[26px] max-xl:px-[20px] max-xl:flex-col">
+        <div className="w-[570px] h-[718px] bg-[#C4C4C4] rounded-[25px] mx-auto max-xl:h-[372px]  max-sm:h-[200px] max-sm:w-[335px]" />
         {/* <Image
           src={healtMangementImage}
-          alt="Спортивная медицина"
+          alt="футер лого"
           className="rounded-[30px] h-[507px] w-[590px]"
         /> */}
+        {/* <div className='flex flex-col gap-[50px] '> */}
 
-        <div className="text-default-18 flex flex-col gap-[15px] max-w-[590px]">
-          <Image src={footerImg} alt="Спортивная медицина" className=" w-[320px] mb-[50px]" />
 
-          <div className="flex gap-[60px] text-default-16 font-normal">
-            <div className=" flex flex-col gap-[30px]">
+        <div className="text-default-18 flex flex-col  max-w-[590px] max-xl:max-w-full">
+
+        <Image src={footerImg} alt="Логотип" className=" w-[320px] mb-[50px] max-xl:w-[157px]  max-xl:h-[40px] max-xl:absolute max-xl:top-[40px]" />
+
+          <div className="flex gap-[60px] text-default-16 font-normal max-xl:gap-[20px] max-xl:justify-between">
+            <div className=" flex flex-col gap-[30px] max-xl:gap-[15px] ">
               <span className="text-footer-groups text-custom-green">Адрес</span>
               <p className=" w-full font-normal">
                 Санкт-Петербург, ул. Жукова 3А{' '}
@@ -34,16 +37,16 @@ export const Footer = () => {
               </p>
 
               <span className="text-footer-groups text-custom-green font-semibold">Реквизиты</span>
-              <ul>
+              <ul className='text-footer-req'>
                 {requisites.map((req) => (
-                  <li key={req.id} className="leading-[21px] font-normal">
+                  <li key={req.id} className="">
                     {req.requisit}
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className=" flex flex-col gap-[30px]">
+            <div className=" flex flex-col gap-[30px] max-xl:gap-[15px]">
               <span className="text-footer-groups text-custom-green">Время работы</span>
               <p className="max-w-[264px] font-normal flex flex-col">
                 Мы работаем
@@ -53,7 +56,7 @@ export const Footer = () => {
 
               <span className="text-footer-groups text-custom-green font-semibold">Контакты</span>
               <div className="flex flex-col font-semibold underline">
-                <Link href={'/'} className="mb-[7px] font-normal">
+                <Link href={'/'} className="mb-[7px] font-normal text-[16px] leading-[20px] max-lg:text-[12px] max-lg:leading-[21px]">
                   medcenter@aristomed.ru
                 </Link>
                 <span>+7 (812) 443-86-59</span>
@@ -70,9 +73,10 @@ export const Footer = () => {
               </div>
             </div>
           </div>
-          <Button variant={'tertiary'} className="w-[290px] h-[56px] rounded-[46px]">
+          <div className='flex max-sm:mt-[30px] max-sm:justify-center'>
+          <Button variant={'primary'}>
             Заказать обратный звонок
-          </Button>
+          </Button></div>
           <div className="flex flex-col gap-[20px] text-[12px] leading-[16px] font-medium text-footer-info mt-[50px]">
             <p>
               Данный веб-сайт использует файлы cookie с целью улучшения качества услуг и анализа
@@ -85,6 +89,7 @@ export const Footer = () => {
             </p>
           </div>
         </div>
+        {/* </div> */}
       </div>
     </footer>
   );

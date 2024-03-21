@@ -5,12 +5,12 @@ interface IButtonProps {
   variant: 'primary' | 'secondary' | 'tertiary' | 'transparent';
   onClick?: () => void;
   children: React.ReactNode;
-  className?: string;
+  // className?: string;
 }
 
 
 
-export const Button = ({ variant, onClick, children, className }: IButtonProps) => {
+export const Button = ({ variant, onClick, children }: IButtonProps) => {
   const defaultStyles =
     'rounded-[40px] transform:transition hover:transform hover:scale-105 transition duration-300 block min-w-[auto] content-box text-white-default';
 
@@ -24,7 +24,7 @@ export const Button = ({ variant, onClick, children, className }: IButtonProps) 
     transparent: 'bg-transparent !text-button-color',
   };
 
-  const buttonClasses = classNames(defaultStyles, buttonStyles[variant], className);
+  const buttonClasses = classNames(defaultStyles, buttonStyles[variant]);
 
   return (
     <button className={buttonClasses} onClick={onClick}>

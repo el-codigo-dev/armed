@@ -68,8 +68,7 @@ export const Header = () => {
                   <Image src={phoneImg} alt="Телефон" />8 812 999 28 05
                 </Link>
                 <Button
-                  variant={'tertiary'}
-                  className="">
+                  variant={'tertiary'}>
                   Записаться на прием
                 </Button>
               </div>

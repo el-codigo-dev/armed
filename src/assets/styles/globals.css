@@ -17,12 +17,15 @@
   }
 
   .text-default-16 {
-    @apply font-medium  text-[16px] leading-[19px];
+    @apply font-medium  text-[16px] leading-[19px]
+    max-sm:text-[14px] max-sm:leading-[17px];
   }
 
   .text-default-18 {
-    @apply font-medium  text-[18px] leading-[21px];
-  }
+    @apply font-medium  text-[18px] leading-[21px]
+    max-sm:text-[16px] max-sm:leading-[19px];
+  }    
+
 
   .text-normal-18 {
     @apply font-normal text-[18px] leading-[21px];
@@ -34,15 +37,20 @@
   }
 
   .text-doctor-name {
-    @apply text-[21px] leading-[28px] font-bold;
+    @apply text-[21px] leading-[28px] font-bold
+    max-sm:text-[16px] max-sm:leading-[19px];
+
   }
 
   .text-drop-down {
-    @apply text-[24px] leading-[29px] font-semibold;
+    @apply text-[24px] leading-[29px] font-semibold
+    max-sm:text-[16px] max-sm:leading-[19px];
+
   }
 
   .text-footer-groups {
-    @apply text-[21px] leading-[28px] font-semibold;
+    @apply text-[21px] leading-[28px] font-semibold
+    max-sm:text-[16px] max-sm:leading-[18px];
   }
 
   .text-slider-header {
@@ -76,6 +84,18 @@
   .text-button {
     @apply text-[21px] font-semibold leading-[25px]
     max-sm:text-[16px] max-sm:leading-[19px];
+  }
+
+
+  .text-promotion-header {
+    @apply text-[24px] font-bold leading-[29px]
+    max-sm:text-[16px] max-sm:leading-[19px];
+  }
+
+
+  .text-footer-req {
+    @apply text-[16px] leading-[21px] font-normal
+    max-sm:text-[14px] max-sm:leading-[16px];
   }
 }
 
