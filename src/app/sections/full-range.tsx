@@ -7,11 +7,11 @@ import { Button } from '@/components/ui/button';
 export const FullRange = () => {
   return (
     <section className="w-full text-custom-black py-[80px] max-xl:py-[60px]">
-      <div className="max-w-[1200px] w-full mx-auto flex justify-between max-xl:px-[20px] max-xl:flex-col max-xl:items-center max-xl:gap-[30px]">
+      <div className="max-w-[1200px] w-full mx-auto flex justify-between  gap-[60px] max-xl:px-[20px] max-xl:flex-col max-xl:items-center max-xl:gap-[30px]">
         <Image
           src={fullRangeImg}
           alt="Полный спектр медицинского сопровождения"
-          className="rounded-[30px] h-[766px] max-xl:h-[372px] max-xl:w-[335px]"
+          className="rounded-[30px] h-[766px] object-cover  w-[550px] max-xl:h-[372px] max-xl:w-[335px]"
         />
 
         <div className="flex flex-col max-w-[590px] text-default-16 max-xl:max-w-full">

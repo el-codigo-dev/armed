@@ -21,7 +21,7 @@ export const Button = ({ variant, onClick, children }: IButtonProps) => {
       'px-[25px] py-[15px] bg-secondary-button-color text-button max-sm:px-[15px] max-sm:py-[10px]',
     tertiary:
       'px-[30px] py-[10px] bg-button-color text-[16px] !rounded-[30px] bg-opacity-75 ',
-    transparent: 'bg-transparent !text-button-color',
+    transparent: 'bg-transparent !text-button-color text-[20px] leading-[24px] font-medium',
   };
 
   const buttonClasses = classNames(defaultStyles, buttonStyles[variant]);

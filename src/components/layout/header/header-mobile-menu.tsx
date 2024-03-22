@@ -122,13 +122,14 @@ export const HeaderMobileMenu = () => {
             </div>
           </DropDown>
 
+<div>
           <Button
             variant={'transparent'}>
             Записаться на прием
-          </Button>
+          </Button></div>
         </div>
 
-        <ul className="flex flex-col gap-[10px] pt-[233px] pb-[99px] text-default-16 text-header-links">
+        <ul className="flex flex-col gap-[10px] pt-[233px] pb-[99px] text-[16px] leading-[19px] font-medium text-header-links">
           <li>
             <Link href={'/'}>О центре</Link>
           </li>
