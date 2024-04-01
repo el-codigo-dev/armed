@@ -1,9 +1,9 @@
-'use client';
+// 'use client';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { A11y, Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { A11y, Autoplay, Navigation } from 'swiper/modules';
 import Image from 'next/image';
 
 import firstBg from '@/assets/images/backgrounds/slider-bg-1.png';
@@ -113,7 +113,6 @@ const Slider = ({}) => {
     swiper && swiper.slideTo(index);
   };
 
-
   return (
     <section className="w-[100%] h-[100vh] relative bg-black">
       <Swiper
@@ -130,7 +129,8 @@ const Slider = ({}) => {
           <SwiperSlide key={img.id}>
             <Image
               src={windowWidth > 640 ? img.img : img.mobileImg}
-              className={'w-[100%] h-[100vh] p-0 object-cover'}
+              className={' p-0 object-cover'}
+              fill
               alt="Поликлиника"
             />
           </SwiperSlide>

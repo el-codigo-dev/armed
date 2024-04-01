@@ -24,8 +24,7 @@
   .text-default-18 {
     @apply font-medium  text-[18px] leading-[21px]
     max-sm:text-[16px] max-sm:leading-[19px];
-  }    
-
+  }
 
   .text-normal-18 {
     @apply font-normal text-[18px] leading-[21px];
@@ -36,16 +35,19 @@
     max-sm:text-[20px] max-sm:leading-[24px];
   }
 
+  .text-semibold-32 {
+    @apply text-[32px] leading-[38px] font-semibold
+    max-sm:text-[26px] max-sm:leading-[31px];
+  }
+
   .text-doctor-name {
     @apply text-[21px] leading-[28px] font-bold
     max-sm:text-[16px] max-sm:leading-[19px];
-
   }
 
   .text-drop-down {
     @apply text-[24px] leading-[29px] font-semibold
     max-sm:text-[16px] max-sm:leading-[19px];
-
   }
 
   .text-footer-groups {
@@ -78,7 +80,7 @@
 
   .text-numbered {
     @apply font-raleway font-semibold text-[36px] leading-[43px]
- max-lg:text-[26px] max-lg:leading-[31px];
+    max-lg:text-[26px] max-lg:leading-[31px];
   }
 
   .text-button {
@@ -86,12 +88,15 @@
     max-sm:text-[16px] max-sm:leading-[19px];
   }
 
+  .text-label {
+    @apply text-[21px] font-medium leading-[25px]
+    max-sm:text-[18px] max-sm:leading-[22px];
+  }
 
   .text-promotion-header {
     @apply text-[24px] font-bold leading-[29px]
     max-sm:text-[16px] max-sm:leading-[19px];
   }
-
 
   .text-footer-req {
     @apply text-[16px] leading-[21px] font-normal

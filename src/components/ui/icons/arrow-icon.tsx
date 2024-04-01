@@ -1,4 +1,4 @@
-export const ArrowIcon = ({
+const ArrowIcon = ({
   className,
   color,
   width,

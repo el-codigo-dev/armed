@@ -16,7 +16,14 @@ type DropdownProps = {
   borderStyles?: string;
   hasMainBorder?: boolean;
   listStyles?: string;
-  type: 'header' | 'questions' | 'directions' | 'directionsV2' | 'headerV2' | 'directionsMobile' | 'directionsV2Mobile';
+  type:
+    | 'header'
+    | 'questions'
+    | 'directions'
+    | 'directionsV2'
+    | 'headerV2'
+    | 'directionsMobile'
+    | 'directionsV2Mobile';
 };
 
 export const DropDown = ({
@@ -26,16 +33,13 @@ export const DropDown = ({
   maxHeight,
   color,
   borderStyles,
-  listStyles,
   type,
 }: DropdownProps) => {
   const [isMenuVisible, setMenuVisible] = useState(false);
-  const [windowWidth] = useWindowSize();
 
   const toggleMenu = () => {
     setMenuVisible(!isMenuVisible);
   };
-  // console.log(maxHeight);
 
   const dropDownStyles = {
     headerV2: {
@@ -61,16 +65,14 @@ export const DropDown = ({
       link: 'max-w-[260px]',
     },
 
-
-
-
-
     questions: {
-      container: '',
+      container: 'pb-[15px]',
       trigerFrame: `rounded-[20px] pr-[20px] pl-[30px] py-[18px] max-sm:py-[15px] max-sm:pr-[10px] max-sm:pl-[9px] ${
         isMenuVisible && 'bg-white-default '
       } `,
-      text: `text-drop-down rounded-[20px] ${isMenuVisible && 'text-custom-green'} max-sm:max-w-[200px]`,
+      text: `text-drop-down rounded-[20px] ${
+        isMenuVisible && 'text-custom-green'
+      } max-sm:max-w-[200px]`,
       arrow: {
         default: 'white',
         opened: '#85A080',
@@ -79,14 +81,10 @@ export const DropDown = ({
       link: 'max-w-[260px] ',
     },
 
-
-
-
-
     directions: {
-      container: 'border-b-2 border-custom-green',
-      trigerFrame: '',
-      text: 'text-trigger pb-[30px] max-sm:py-[10px] max-sm:px-[15px] max-w-[260px] break-word',
+      container: 'border-b-2 border-custom-green last:border-none',
+      trigerFrame: ' pb-[30px]',
+      text: 'text-trigger max-sm:py-[10px] max-sm:px-[15px] max-w-[255px] break-word',
       arrow: {
         default: '#85A080',
         opened: '#85A080',
@@ -106,8 +104,6 @@ export const DropDown = ({
       link: 'max-w-[260px]',
     },
 
-
-
     directionsV2Mobile: {
       container: '',
       trigerFrame: '',
@@ -119,8 +115,6 @@ export const DropDown = ({
       list: 'mb-[30px] ',
       link: 'max-w-[260px]',
     },
-    
-
 
     directionsMobile: {
       container: 'relative bg-white-default rounded-[40px]',
@@ -142,7 +136,6 @@ export const DropDown = ({
       <span
         className={classNames(
           'flex cursor-pointer justify-between items-center gap-[8px]',
-          // list && 'pb-[30px]',
           borderStyles,
           color && 'rounded-[20px]',
           color && isMenuVisible && `bg-${color}`,
@@ -150,26 +143,16 @@ export const DropDown = ({
           dropDownStyles[type]?.trigerFrame,
         )}
         onClick={toggleMenu}>
-        <span
-          className={classNames(
-            // 'break-words',
-            // triggerTextStyles,
-            // list && 'max-w-[255px] max-sm:max-w-full',
-            // color && isMenuVisible &&'text-custom-green'
-
-            dropDownStyles[type]?.text,
-          )}>
-          {triggerText}
-        </span>
+        <span className={classNames(dropDownStyles[type]?.text)}>{triggerText}</span>
         <ArrowIcon
           width={
-            // windowWidth > 1280 ? 
+            // windowWidth > 1280 ?
             40
             //  : 20
           }
           height={
-            // windowWidth > 1280 ? 
-            20 
+            // windowWidth > 1280 ?
+            20
             // : 10
           }
           color={

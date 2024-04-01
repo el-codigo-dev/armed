@@ -32,7 +32,6 @@ export const PromotionCardList = () => {
         }}
         loop={true}
         pagination={{ clickable: true }}
-        // onSlideChange={(swiper) => handleSlideChange(swiper)}
         className={'w-[100%]'}
         direction={'horizontal'}>
         {data?.map((promo: ISale) => (

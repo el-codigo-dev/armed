@@ -23,7 +23,7 @@ export const FrequentQuestions = () => {
               <DropDown
                 triggerText={'Чем Аристомед отличается от других клиник?'}
                 type={'questions'}>
-                <div className="text-default-16 px-[30px] mt-[15px] pb-[19px] max-xl:pb-[15px]">
+                <div className="text-default-16 px-[30px] mt-[15px] pb-[15px]">
                   <p className="mb-[30px]">
                     Ориентируемся на раннее выявление, профилактику развития болезней, составляем
                     схемы индивидуальной терапии.
@@ -40,7 +40,7 @@ export const FrequentQuestions = () => {
 
             <div className="border-b-[2px] border-white-default">
               <DropDown triggerText={'Что такое лечение полного цикла?'} type={'questions'}>
-                <div className="text-default-16 px-[30px] mt-[15px] pb-[19px] max-xl:pb-[15px]">
+                <div className="text-default-16 px-[30px] mt-[15px]  pb-[15px]">
                   <p className="mb-[10px]">
                     Занимаемся состоянием пациента в целом, лечим не только конкретную болезнь.
                     Поэтому работа медицинского центра базируется на концепции личного врача —,
@@ -52,9 +52,9 @@ export const FrequentQuestions = () => {
               </DropDown>
             </div>
 
-            <div className="border-b-[2px] border-white-default">
+            <div className="">
               <DropDown triggerText={'Что такое медориентирование?'} type={'questions'}>
-                <div className="text-default-16 px-[30px] mt-[15px] pb-[19px] max-xl:pb-[15px]">
+                <div className="text-default-16 px-[30px] mt-[15px]  pb-[15px]">
                   <p className="mb-[10px]">
                     Это помощь в поиске врача или организации, где помогут решить проблему со
                     здоровьем лучше всего. Человеку, далекому от медицины сложно:

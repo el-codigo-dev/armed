@@ -9,9 +9,6 @@ import classNames from 'classnames';
 import Providers from '@/utils/providers';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
-// const raleway = Raleway({ subsets: ['latin'] });
-
-//NEXT ART ?
 
 export const metadata: Metadata = {
   title: 'Аристомед',
@@ -25,11 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={classNames(
-          montserrat.className,
-          //  raleway.className
-        )}>
+      <body className={classNames(montserrat.className)}>
         <Providers>
           <Header />
           {children}

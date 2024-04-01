@@ -22,8 +22,6 @@ export const DoctorCardList = () => {
       <Swiper
         spaceBetween={20}
         slidesPerView={windowWidth > 1024 ? 3 : windowWidth > 640 ? 2 : 1}
-        // slidesPerGroup={1}
-
         modules={[Navigation]}
         navigation={{
           prevEl: '.swiper-button-prev',
@@ -31,7 +29,6 @@ export const DoctorCardList = () => {
         }}
         loop={true}
         pagination={{ clickable: true }}
-        // onSlideChange={(swiper) => handleSlideChange(swiper)}
         className={'w-[100%]'}
         direction={'horizontal'}>
         {doctors &&

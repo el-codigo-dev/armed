@@ -12,11 +12,9 @@ import {
   servicesedAndSpecialists,
   socials,
   specialistDoctors,
-  sportsPrograms,
 } from '@/utils/constants';
 import { DropDown } from '@/app/sections/drop-down';
 import { Button } from '@/components/ui/button';
-import { useEffect, useRef } from 'react';
 import { useAppDispatch } from '@/store/store';
 import { toggleMobileMenuOpen } from '@/store/mainSlice';
 
@@ -29,7 +27,7 @@ export const HeaderMobileMenu = () => {
 
   return (
     <div
-      className="fixed w-full bg-custom-gray top-0 left-0 pt-[40px]      overflow-scroll h-full"
+      className="fixed w-full bg-custom-gray top-0 left-0 pt-[40px] overflow-scroll h-full"
       // tabIndex={-1}
       // ref={menuRef}
     >
@@ -69,21 +67,17 @@ export const HeaderMobileMenu = () => {
                 triggerText={'Детские программы:'}
                 list={childrensPrograms}
                 type={'headerV2'}
-
               />
               <DropDown
                 triggerText={'Анализы и диагностика:'}
                 list={analysisAndDiagnostics}
                 type={'headerV2'}
-
               />
 
               <ul className="flex flex-col flex-wrap gap-[15px] font-semibold">
                 {medicalDireactions.map((direction) => (
                   <li className="" key={direction.id}>
-                    <Link
-                      href={direction.link}
-                      className="text-[16px] font-normal leading-[19px]">
+                    <Link href={direction.link} className="text-[16px] font-normal leading-[19px]">
                       {direction.speciality}
                     </Link>
                   </li>
@@ -122,11 +116,9 @@ export const HeaderMobileMenu = () => {
             </div>
           </DropDown>
 
-<div>
-          <Button
-            variant={'transparent'}>
-            Записаться на прием
-          </Button></div>
+          <div>
+            <Button variant={'transparent'}>Записаться на прием</Button>
+          </div>
         </div>
 
         <ul className="flex flex-col gap-[10px] pt-[233px] pb-[99px] text-[16px] leading-[19px] font-medium text-header-links">

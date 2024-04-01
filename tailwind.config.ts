@@ -11,12 +11,13 @@ const config: Config = {
       fontFamily: {
         monserat: ['Montserrat', 'sans-serif'],
         nextArt: ['Next Art', 'sans-serif'],
-        raleway: ['Raleway', 'sans-serif']
+        raleway: ['Raleway', 'sans-serif'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'slider-bg-1': 'url("/src/assets/images/slider-bg-1.jpg")',
+        slider: "url('/src/assets/images/full-range-img.png')",
+        arrow: "url('/src/assets/images/arrow-icon.svg')",
       },
       colors: {
         'custom-green': '#85A080',
@@ -32,7 +33,9 @@ const config: Config = {
         'card-color': '#DEDEDE',
         'secondary-button-color': '#B3C833',
         'footer-info': '#8B8B8B',
-        'header-links': '#939393'
+        'header-links': '#939393',
+        'input-form-color': '#EEEEEE',
+        red: 'red',
       },
       keyframes: {
         fadeInHeight: {

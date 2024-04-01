@@ -25,18 +25,15 @@ import { useAppDispatch, useAppSelector } from '@/store/store';
 import { toggleMobileMenuOpen } from '@/store/mainSlice';
 
 export const Header = () => {
-
-
-  const isMobileMenuOpen = useAppSelector(store => store.main.isMobileMenuOpen)
-  const dispatch = useAppDispatch()
+  const isMobileMenuOpen = useAppSelector((store) => store.main.isMobileMenuOpen);
+  const dispatch = useAppDispatch();
 
   const scrolled = useScrollHandler();
   const [windowWidth] = useWindowSize();
 
-
   const handleOpenModal = () => {
-    dispatch(toggleMobileMenuOpen())
-  }
+    dispatch(toggleMobileMenuOpen());
+  };
   return (
     <header
       className={classNames(
@@ -67,10 +64,7 @@ export const Header = () => {
                   href="https://yandex.ru/maps/org/aristomed/135703313008/?ll=30.402001%2C59.963379&z=13">
                   <Image src={phoneImg} alt="Телефон" />8 812 999 28 05
                 </Link>
-                <Button
-                  variant={'tertiary'}>
-                  Записаться на прием
-                </Button>
+                <Button variant={'tertiary'}>Записаться на прием</Button>
               </div>
 
               <div className="flex gap-[6px] justify-center absolute top-[35px] right-[47%]">

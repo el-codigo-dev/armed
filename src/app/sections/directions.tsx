@@ -33,10 +33,6 @@ export const Directions = () => {
               triggerText={'Консультации врачей-специалистов:'}
               list={specialistDoctors}
               maxHeight={windowWidth > 640 ? 310 : 260}
-              // hasMainBorder={windowWidth > 640}
-              // color={'secondary-button-color'}
-              // listStyles={'border-t-2 border-custom-green pt-[20px]'}
-
               type={windowWidth > 640 ? 'directions' : 'directionsMobile'}
             />
 
@@ -53,7 +49,7 @@ export const Directions = () => {
               type={windowWidth > 640 ? 'directions' : 'directionsMobile'}
             />
 
-            <ul className="flex flex-col flex-wrap gap-[15px] max-h-[160px] font-semibold max-sm:max-h-[none] max-sm:gap-[10px]">
+            <ul className="flex flex-col flex-wrap gap-[15px] h-[123px] font-semibold max-sm:h-[auto] max-sm:gap-[10px]">
               {medicalDireactions.map((direction) => (
                 <li className="max-w-[170px] max-sm:max-w-[none]" key={direction.id}>
                   <Link
