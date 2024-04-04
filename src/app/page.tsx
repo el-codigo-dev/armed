@@ -20,9 +20,8 @@ export default function Home() {
 
   const isModalOpen = useAppSelector((store) => store.main.isModalOpen);
 
-
   console.log(isModalOpen);
-  
+
   return (
     <>
       <main
@@ -35,7 +34,6 @@ export default function Home() {
         <Promotions />
         <ManageYourLife />
         <Reviews />
-
         <FullRange />
         <SportMedicine />
         <HealthManagement />

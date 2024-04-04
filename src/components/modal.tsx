@@ -9,6 +9,7 @@ export const Modal = ({ children }: { children: ReactNode }) => {
   const handleClose = () => {
     dispatch(setModalClose());
   };
+  
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
