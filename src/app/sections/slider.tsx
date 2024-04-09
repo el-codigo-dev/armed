@@ -3,7 +3,7 @@
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { A11y, Autoplay, Navigation } from 'swiper/modules';
+import { A11y, Autoplay, Navigation, Pagination, Scrollbar } from 'swiper/modules';
 import Image from 'next/image';
 
 import firstBg from '@/assets/images/backgrounds/slider-bg-1.png';
@@ -89,7 +89,7 @@ const Slider = ({}) => {
         <button
           key={i}
           className={classNames(
-            windowWidth <= 640
+            windowWidth <= 1280
               ? `bg-white-default w-[10px] h-[10px] rounded-[50%] opacity-20 ${
                   currentSlide === i ? '!opacity-100' : ''
                 }`
@@ -119,16 +119,18 @@ const Slider = ({}) => {
         onSwiper={setSwiper}
         autoplay={{ delay: 5000 }}
         modules={[Navigation, Autoplay, A11y]}
+        draggable={true}
         loop={true}
         pagination={{ clickable: true }}
         navigation={true}
         onSlideChange={(swiper) => handleSlideChange(swiper)}
         className={'w-[100%] h-[100vh]'}
-        direction={windowWidth > 640 ? 'vertical' : 'horizontal'}>
+        // grabCursor={true}
+        direction={windowWidth > 1280 ? 'vertical' : 'horizontal'}>
         {slidesBackgorund.map((img) => (
           <SwiperSlide key={img.id}>
             <Image
-              src={windowWidth > 640 ? img.img : img.mobileImg}
+              src={windowWidth > 1280 ? img.img : img.mobileImg}
               className={' p-0 object-cover'}
               fill
               alt="Поликлиника"
@@ -137,11 +139,11 @@ const Slider = ({}) => {
         ))}
       </Swiper>
 
-      <div className="max-w-[1200px] min-h-[358px] w-full absolute top-[33%] z-10  text-white left-[50%] translate-x-[-50%] max-xl:px-[20px] text-slider flex  max-sm:bottom-[60px] items-center max-sm:flex-col-reverse max-sm:items-start">
-        <div className="pagination-container mr-[15px] flex flex-col gap-[19px] max-sm:mt-[68px] max-sm:flex-row max-sm:self-center">
+      <div className="max-w-[1200px] min-h-[358px] top-[33%] w-full absolute z-10  text-white left-[50%] translate-x-[-50%] max-xl:px-[20px] text-slider flex  max-xl:bottom-[60px] items-center max-xl:flex-col-reverse max-xl:items-start max-xl:top-[initial] max-xl:max-h-[400px]">
+        <div className="pagination-container mr-[15px] flex flex-col gap-[19px] max-xl:mt-[68px] max-xl:flex-row max-xl:self-center">
           {renderPaginationButtons()}
         </div>
-        <div className="flex flex-col gap-[15px] max-sm:gap-[10px]">
+        <div className="flex flex-col gap-[15px] max-xl:gap-[10px]">
           {slidesData[currentSlide].content}
 
           <div className="mt-[15px]">
