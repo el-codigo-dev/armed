@@ -31,7 +31,7 @@ export const HeaderMobileMenu = () => {
       // tabIndex={-1}
       // ref={menuRef}
     >
-      <div className="max-w-[1200px] w-full mx-auto px-[20px]">
+      <div className="max-w-[1200px] w-full mx-auto px-[20px] flex flex-col h-full">
         <div className="flex justify-between ">
           <Link href={'/'} className="flex items-center">
             <Image src={logo} width={140} height={18} alt="Логотип" className="h-[18px]" />
@@ -121,7 +121,7 @@ export const HeaderMobileMenu = () => {
           </div>
         </div>
 
-        <ul className="flex flex-col gap-[10px] pt-[233px] pb-[99px] text-[16px] leading-[19px] font-medium text-header-links">
+        <ul className="flex flex-col gap-[10px] mt-[auto] pb-[99px] text-[16px] leading-[19px] font-medium text-header-links">
           <li>
             <Link href={'/'}>О центре</Link>
           </li>
