@@ -18,6 +18,7 @@ const config: Config = {
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         slider: "url('/src/assets/images/full-range-img.png')",
         arrow: "url('/src/assets/images/arrow-icon.svg')",
+        footerBg: "url('/src/assets/images/footer/bg.png')",
       },
       colors: {
         'custom-green': '#85A080',
@@ -42,9 +43,29 @@ const config: Config = {
           '0%': { height: '0' },
           '100%': { height: '100%' },
         },
+
+        enter: {
+          from: {
+            opacity: '0',
+          },
+          to: {
+            opacity: '1',
+          },
+        },
+        
+        out: {
+          from: {
+            opacity: '1',
+          },
+          to: {
+            opacity: '0',
+          },
+        },
       },
       animation: {
         fadeInHeight: 'fadeInHeight 5.2s linear',
+        enter: 'enter 300ms linear',
+        out: 'out 300ms linear'
       },
     },
   },

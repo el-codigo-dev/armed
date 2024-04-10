@@ -102,6 +102,10 @@
     @apply text-[16px] leading-[21px] font-normal
     max-sm:text-[14px] max-sm:leading-[16px];
   }
+
+  /* .text-footer-h1 {
+    @apply text-[26px] leading-[60px] font-semibold
+  } */
 }
 
 :root {

@@ -1,86 +1,53 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import arrow from '@/assets/images/arrow-icon.svg';
-import ArrowIcon from '@/components/ui/icons/arrow-icon';
+import * as PopoverPrimitive from '@radix-ui/react-popover';
 import { IoIosArrowDown } from 'react-icons/io';
 import classNames from 'classnames';
 
 type DropDownProps = {
   triggerText: string;
   children?: React.ReactNode;
-  position?: string;
+  align: 'start' | 'end';
 };
+const Popover = PopoverPrimitive.Root;
+const PopoverClose = PopoverPrimitive.PopoverClose;
+const PopoverTrigger = PopoverPrimitive.Trigger;
+const PopoverAnchor = PopoverPrimitive.Anchor;
+const PopoverContent = PopoverPrimitive.Content;
 
-export const HeaderDropDown = ({ triggerText, children, position }: DropDownProps) => {
-  const [isMouseOverTrigger, setMouseOverTrigger] = useState(false);
-  const [isMouseOverMenu, setMouseOverMenu] = useState(false);
-
-  const openMenu = () => {
-    setMouseOverTrigger(true);
-  };
-
-  const closeMenu = () => {
-    if (!isMouseOverMenu) {
-      setTimeout(() => {
-
-        setMouseOverTrigger(false);
-      }, 500);
-    }
-  };
-
-  const handleMouseEnter = () => {
-    setMouseOverMenu(true);
-  };
-
-  const handleMouseLeave = () => {
-    setMouseOverMenu(false);
-    closeMenu();
-  };
-
-  const handleTextHover = () => {
-    openMenu();
-  };
-
-  useEffect(() => {
-    if (!isMouseOverTrigger || !isMouseOverMenu) {
-      return;
-    }
-    const timer = setTimeout(() => {
-      closeMenu();
-    }, 500);
-
-    return () => clearTimeout(timer);
-  }, [isMouseOverTrigger, closeMenu]);
-
-  console.log(isMouseOverTrigger);
+export const HeaderDropDown = ({ triggerText, children, align }: DropDownProps) => {
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
 
   return (
-    <div className="">
-      <span
-        className="text-white cursor-pointer flex items-center hover:underline hover:text-text-green"
-        onMouseEnter={handleTextHover}
-        onMouseLeave={closeMenu}>
-        {triggerText}
+    <Popover open={isPopoverOpen}>
+      <div onMouseEnter={() => setIsPopoverOpen(true)} onMouseLeave={() => setIsPopoverOpen(false)}>
+        <PopoverTrigger>
+          <span className="text-white cursor-pointer flex items-center hover:underline hover:text-text-green">
+            {triggerText}
 
-
-        <IoIosArrowDown
-          size={20}
+            <IoIosArrowDown
+              size={20}
+              className={classNames(
+                isPopoverOpen ? 'rotate-180' : '',
+                'transform transition-transform duration-200 ease-in-out',
+              )}
+            />
+          </span>
+        </PopoverTrigger>
+        <PopoverContent
+          sideOffset={0}
+          align={align}
           className={classNames(
-            isMouseOverTrigger ? 'rotate-180' : '',
-            'transform transition-transform duration-200 ease-in-out',
-          )}
-        />
-      </span>
-      {(isMouseOverTrigger || isMouseOverMenu) && (
-        <div
-          className={`absolute bg-white border border-gray-200 shadow-lg mt-2 z-30 p-[37px] rounded-[23px] 
-          ${position ? `right-[${position}]` : 'right-[8%]'}`}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}>
-          {children}
-        </div>
-      )}
-    </div>
+            'pointer-events-auto flex  cursor-default  rounded-[10px] p-1 pt-[8px] ',
+            'data-[state=open]:animate-enter data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 ',
+          )}>
+          <div className={`bg-white border border-gray-200 shadow-lg z-30 p-[37px] rounded-[23px]`}>
+            {children}
+          </div>
+        </PopoverContent>
+      </div>
+    </Popover>
   );
 };
+// сработало лул

@@ -39,7 +39,7 @@ export const Header = () => {
       className={classNames(
         'fixed top-0 left-0 w-full bg-transparent min-h-[132px] pt-[62px] text-[16px] font-medium leading-[21px] z-20 transition-all duration-500  max-xl:pt-[40px] max-xl:min-h-[auto]',
         scrolled &&
-          '!pt-[32px] !bg-custom-green !bg-opacity-90  shadow-xl max-xl:pt-[20px]  max-xl:pb-[20px]',
+        '!pt-[32px] !bg-custom-green !bg-opacity-90  shadow-xl max-xl:pt-[20px]  max-xl:pb-[20px]',
       )}>
       <div className="max-w-[1200px] w-full mx-auto flex justify-between max-xl:px-[20px] max-xl:items-center">
         {windowWidth > 1280 ? (
@@ -49,7 +49,7 @@ export const Header = () => {
             </Link>
             <div className="flex flex-col  items-end gap-[15px] relative">
               <div className="flex gap-[30px] items-center">
-                <HeaderDropDown triggerText={'О центре'} position="40%">
+                <HeaderDropDown triggerText={'О центре'} align={'end'}>
                   <AboutCenterMenu />
                 </HeaderDropDown>
 
@@ -77,15 +77,15 @@ export const Header = () => {
               </div>
 
               <div className="flex gap-[30px]">
-                <HeaderDropDown triggerText={'МЕДИЦИНСКИЙ ЦЕНТР'}>
+                <HeaderDropDown align={'start'} triggerText={'МЕДИЦИНСКИЙ ЦЕНТР'}>
                   <MedicalCenterMenu />
                 </HeaderDropDown>
 
-                <HeaderDropDown triggerText={'СПОРТИВНАЯ МЕДИЦИНА'}>
+                <HeaderDropDown align={'end'} triggerText={'СПОРТИВНАЯ МЕДИЦИНА'}>
                   <SportsMedicineMenu />
                 </HeaderDropDown>
 
-                <HeaderDropDown triggerText={'УПРАВЛЕНИЕ ЗДОРОВЬЕМ'}>
+                <HeaderDropDown align={'end'} triggerText={'УПРАВЛЕНИЕ ЗДОРОВЬЕМ'}>
                   <HealthManagementMenu />
                 </HeaderDropDown>
               </div>

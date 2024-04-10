@@ -14,6 +14,7 @@ import { useAppSelector } from '@/store/store';
 import { Modal } from '@/components/modal';
 import { AppointmentForm } from '@/components/form-appointment';
 import { Reviews } from './sections/reviews';
+import { Contacts } from './sections/contacts';
 
 export default function Home() {
   const isMobileMenuOpen = useAppSelector((store) => store.main.isMobileMenuOpen);
@@ -39,6 +40,7 @@ export default function Home() {
         <HealthManagement />
         <Doctors />
         <FrequentQuestions />
+        <Contacts />
       </main>
 
       {isModalOpen && (
