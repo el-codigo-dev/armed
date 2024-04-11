@@ -11,13 +11,13 @@ type DropDownProps = {
   align: 'start' | 'end';
 };
 const Popover = PopoverPrimitive.Root;
-const PopoverClose = PopoverPrimitive.PopoverClose;
 const PopoverTrigger = PopoverPrimitive.Trigger;
-const PopoverAnchor = PopoverPrimitive.Anchor;
 const PopoverContent = PopoverPrimitive.Content;
 
 export const HeaderDropDown = ({ triggerText, children, align }: DropDownProps) => {
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+
+
 
   return (
     <Popover open={isPopoverOpen}>
@@ -39,8 +39,8 @@ export const HeaderDropDown = ({ triggerText, children, align }: DropDownProps) 
           sideOffset={0}
           align={align}
           className={classNames(
-            'pointer-events-auto flex  cursor-default  rounded-[10px] p-1 pt-[8px] ',
-            'data-[state=open]:animate-enter data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 ',
+            'flex  cursor-default  rounded-[10px] p-1 pt-[8px] border-none',
+            'data-[state=open]:animate-enter data-[state=closed]:animate-out ',
           )}>
           <div className={`bg-white border border-gray-200 shadow-lg z-30 p-[37px] rounded-[23px]`}>
             {children}
@@ -50,4 +50,4 @@ export const HeaderDropDown = ({ triggerText, children, align }: DropDownProps) 
     </Popover>
   );
 };
-// сработало лул
+
