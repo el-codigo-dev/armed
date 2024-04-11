@@ -121,7 +121,7 @@ export const HeaderMobileMenu = () => {
           </div>
         </div>
 
-        <ul className="flex flex-col gap-[10px] mt-[auto] pb-[99px] text-[16px] leading-[19px] font-medium text-header-links">
+        <ul className="flex flex-col gap-[10px] mt-[auto] pb-[99px] text-[16px] leading-[19px] font-medium text-header-links pt-[20px]">
           <li>
             <Link href={'/'}>О центре</Link>
           </li>

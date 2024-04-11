@@ -1,3 +1,4 @@
+import { FaCheck } from 'react-icons/fa';
 import ArrowIcon from './icons/arrow-icon';
 
 interface ICheckboxProps {
@@ -15,7 +16,7 @@ export const Checkbox = ({ variant, id, labelText, validation, isChecked }: IChe
       checkbox:
         'w-5 h-5 rounded-[5px] cursor-pointer appearance-none bg-input-form-color checked:bg-custom-green checked:border-transparent',
       labelText: `text-default-16 cursor-pointer max-sm:max-w-[250px] text-custom-black opacity-55 ${
-        isChecked && 'opacity-100'
+        isChecked && '!opacity-100'
       }`,
 
       customCheckbox:
@@ -30,7 +31,9 @@ export const Checkbox = ({ variant, id, labelText, validation, isChecked }: IChe
       <label htmlFor={id} className={checkboxStyles[variant].labelText}>
         {isChecked && (
           <span className={checkboxStyles[variant].customCheckbox}>
-            <ArrowIcon />
+
+            <FaCheck color='white'size={15}/>
+
           </span>
         )}
 

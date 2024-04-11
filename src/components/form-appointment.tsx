@@ -56,7 +56,7 @@ export const AppointmentForm = () => {
     <>
       {!isSuccessMessageVisible ? (
         <form
-          className="relative max-w-[640px] w-full bg-white-default pt-[50px] flex flex-col gap-[30px] rounded-[25px] px-[50px] pb-[40px] max-sm:px-[20px] max-sm:py-[30px] max-sm:max-w-[335px] max-sm:gap-[25px]"
+          className="relative max-w-[640px] w-full bg-white-default pt-[50px] flex flex-col gap-[30px] rounded-[25px] px-[50px] pb-[40px] max-sm:px-[20px] max-sm:py-[30px]  max-sm:gap-[25px] "
           onSubmit={handleSubmit(handleSend)}>
           <button
             className="absolute cursor-pointer right-[25px] top-[25px] max-sm:top-[10px] max-sm:right-[15px]"

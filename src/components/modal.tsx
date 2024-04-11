@@ -1,15 +1,24 @@
-import React, { ReactNode, useEffect } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import CloseIcon from './ui/icons/close-icon';
 import { setModalClose } from '@/store/mainSlice';
 import { useAppDispatch } from '@/store/store';
+import classNames from 'classnames';
 
 export const Modal = ({ children }: { children: ReactNode }) => {
   const dispatch = useAppDispatch();
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleClose = () => {
-    dispatch(setModalClose());
+    setIsOpen(false);
+    setTimeout(() => {
+      dispatch(setModalClose());
+    }, 300); // Ожидаем завершения анимации перед вызовом действия закрытия
   };
-  
+
+  useEffect(() => {
+    setIsOpen(true);
+  }, []);
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -38,12 +47,17 @@ export const Modal = ({ children }: { children: ReactNode }) => {
       document.removeEventListener('click', handleClickOutside);
     };
   }, []);
+  console.log(isOpen);
 
   return (
-    <div className="fixed top-0 left-0 z-[100] w-full h-[100vh] bg-black bg-opacity-30 flex justify-center items-center">
-      <div id={'modal-content'} 
-      // className=""
-      >
+    <div
+      className={classNames(
+        'fixed top-0 left-0 z-[100] w-full h-full bg-black bg-opacity-30 flex overflow-hidden opacity-0 transition-opacity duration-300',
+        isOpen ? '!opacity-100' : 'opacity-0',
+      )}>
+      <div
+        id={'modal-content'}
+        className="mx-[auto] py-[15%] max-sm:py-[0]         overflow-scroll box-content">
         {children}
       </div>
     </div>
