@@ -7,6 +7,7 @@ import { Header } from '../components/layout/header/header';
 import { Footer } from '../components/layout/footer';
 import classNames from 'classnames';
 import Providers from '@/utils/providers';
+import Head from 'next/head';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 
@@ -22,6 +23,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/icons/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+      </head>
+      
       <body className={classNames(montserrat.className)}>
         <Providers>
           <Header />

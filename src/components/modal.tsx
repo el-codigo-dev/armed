@@ -57,7 +57,7 @@ export const Modal = ({ children }: { children: ReactNode }) => {
       )}>
       <div
         id={'modal-content'}
-        className="mx-[auto] py-[15%] max-sm:py-[0]         overflow-scroll box-content">
+        className="mx-[auto] py-[15%] max-sm:py-[0]         max-sm:overflow-scroll box-content">
         {children}
       </div>
     </div>
