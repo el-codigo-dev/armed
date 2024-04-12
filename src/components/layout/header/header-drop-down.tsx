@@ -22,7 +22,7 @@ export const HeaderDropDown = ({ triggerText, children, align }: DropDownProps) 
   return (
     <Popover open={isPopoverOpen}>
       <div onMouseEnter={() => setIsPopoverOpen(true)} onMouseLeave={() => setIsPopoverOpen(false)}>
-        <PopoverTrigger>
+        <PopoverTrigger className={"outline-0"}>
           <span className="text-white cursor-pointer flex items-center hover:underline hover:text-text-green">
             {triggerText}
 
@@ -39,7 +39,7 @@ export const HeaderDropDown = ({ triggerText, children, align }: DropDownProps) 
           sideOffset={0}
           align={align}
           className={classNames(
-            'flex  cursor-default  rounded-[10px] p-1 pt-[8px] border-none',
+            'flex  cursor-default  rounded-[10px] p-1 pt-[8px] border-none outline-0',
             'data-[state=open]:animate-enter data-[state=closed]:animate-out ',
           )}>
           <div className={`bg-white border border-gray-200 shadow-lg z-30 p-[37px] rounded-[23px]`}>
