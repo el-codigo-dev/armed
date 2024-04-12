@@ -4,21 +4,29 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { A11y, Autoplay, Navigation, Pagination, Scrollbar } from 'swiper/modules';
-import Image from 'next/image';
 
 import firstBg from '@/assets/images/backgrounds/slider-bg-1.png';
-import secondBg from '@/assets/images/backgrounds/slider-bg-3.png';
-import thirdBg from '@/assets/images/backgrounds/slider-bg-4.png';
+import secondBg from '@/assets/images/backgrounds/slider-bg-2.png';
+import thirdBg from '@/assets/images/backgrounds/slider-bg-3.png';
+
+import firstBgWebp from '@/assets/images/backgrounds/slider-bg-1.webp';
+import secondBgWebp from '@/assets/images/backgrounds/slider-bg-2.webp';
+import thirdBgWebp from '@/assets/images/backgrounds/slider-bg-3.webp';
 
 import firstMobileBg from '@/assets/images/backgrounds/slider-bg-mobile-1.png';
-import secondMobileBg from '@/assets/images/backgrounds/slider-bg-mobile-3.png';
-import thirdMobileBg from '@/assets/images/backgrounds/slider-bg-mobile-4.png';
+import secondMobileBg from '@/assets/images/backgrounds/slider-bg-mobile-2.png';
+import thirdMobileBg from '@/assets/images/backgrounds/slider-bg-mobile-3.png';
+
+import firstMobileBgWebp from '@/assets/images/backgrounds/slider-bg-mobile-1.webp';
+import secondMobileBgWebp from '@/assets/images/backgrounds/slider-bg-mobile-2.webp';
+import thirdMobileBgWebp from '@/assets/images/backgrounds/slider-bg-mobile-3.png';
 
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import { useWindowSize } from '@/hooks/use-window-size';
 import classNames from 'classnames';
 import type ISwiper from 'swiper';
+import { useImageProps } from '@/hooks/use-umage-props';
 
 const slidesData = [
   {
@@ -56,31 +64,67 @@ const slidesData = [
   },
 ];
 
-const slidesBackgorund = [
-  {
-    id: 1,
-    img: firstBg,
-    mobileImg: firstMobileBg,
-  },
-  {
-    id: 2,
-    img: secondBg,
-    mobileImg: secondMobileBg,
-  },
-  {
-    id: 3,
-    img: thirdBg,
-    mobileImg: thirdMobileBg,
-  },
-];
-
 const Slider = ({}) => {
+  const [windowWidth] = useWindowSize();
+
+  const {
+    webp: slide1Webp,
+    png: slide1Png,
+    rest: slide1Rest,
+  } = useImageProps(
+    windowWidth > 1280 ? firstBg : firstMobileBg,
+    windowWidth > 1280 ? firstBgWebp : firstMobileBgWebp,
+    'Слайд 1',
+  );
+
+  const {
+    webp: slide2Webp,
+    png: slide2Png,
+    rest: slide2Rest,
+  } = useImageProps(
+    windowWidth > 1280 ? secondBg : secondMobileBg,
+    windowWidth > 1280 ? secondBgWebp : secondMobileBgWebp,
+    'Слайд 2',
+  );
+
+  const {
+    webp: slide3Webp,
+    png: slide3Png,
+    rest: slide3Rest,
+  } = useImageProps(
+    windowWidth > 1280 ? thirdBg : thirdMobileBg,
+    windowWidth > 1280 ? thirdBgWebp : thirdMobileBgWebp,
+    'Слайд 3',
+  );
+
+  const slidesBackgorund = [
+    {
+      id: 1,
+      img: firstBg,
+      webp: slide1Webp,
+      png: slide1Png,
+      rest: slide1Rest,
+    },
+    {
+      id: 2,
+      img: secondBg,
+      webp: slide2Webp,
+      png: slide2Png,
+      rest: slide2Rest,
+    },
+    {
+      id: 3,
+      img: thirdBg,
+      webp: slide3Webp,
+      png: slide3Png,
+      rest: slide3Rest,
+    },
+  ];
+
   const [swiper, setSwiper] = useState<ISwiper | null>(null);
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const totalSlides = 3;
-
-  const [windowWidth] = useWindowSize();
 
   const renderPaginationButtons = () => {
     const buttons = [];
@@ -129,12 +173,19 @@ const Slider = ({}) => {
         direction={windowWidth > 1280 ? 'vertical' : 'horizontal'}>
         {slidesBackgorund.map((img) => (
           <SwiperSlide key={img.id}>
+            <picture>
+              <source srcSet={img.webp} type="image/webp" />
+              <source srcSet={img.png} />
+              <img className={' p-0 object-cover w-[100%] h-[100vh]'} {...img.rest} />
+            </picture>
+
+            {/* 
             <Image
               src={windowWidth > 1280 ? img.img : img.mobileImg}
               className={' p-0 object-cover'}
               fill
               alt="Поликлиника"
-            />
+            /> */}
           </SwiperSlide>
         ))}
       </Swiper>

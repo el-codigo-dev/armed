@@ -13,6 +13,7 @@ export const Contacts = () => {
         <div className="w-[570px] h-[718px] bg-[#C4C4C4] rounded-[25px] mx-auto max-xl:h-[372px]  max-sm:h-[200px] max-sm:w-[335px]" />
 
         <div className="text-default-18 flex flex-col  max-w-[590px] max-xl:max-w-full">
+          
           <Image
             src={contacntsImg}
             alt="Логотип"
@@ -47,7 +48,9 @@ export const Contacts = () => {
                 <span className="font-semibold"> с 9:00 до 19:00</span>
               </p>
 
-              <span className="text-footer-groups text-custom-green font-semibold">Контакты</span>
+              <span className="text-footer-groups text-custom-green font-semibold">
+                Телефон и медиа
+              </span>
               <div className="flex flex-col font-semibold underline">
                 <Link
                   href={'/'}
@@ -55,7 +58,6 @@ export const Contacts = () => {
                   medcenter@aristomed.ru
                 </Link>
                 <span>+7 (812) 443-86-59</span>
-                <span>+7 (931) 999-28-03</span>
                 <ul className="flex gap-[10px] mt-[12px]">
                   {socials.map((social) => (
                     <li key={social.id}>
@@ -68,7 +70,7 @@ export const Contacts = () => {
               </div>
             </div>
           </div>
-          <div className="flex max-sm:mt-[30px] max-sm:justify-center">
+          <div className="mt-[30px] flex max-sm:justify-center">
             <Button variant={'primary'}>Заказать обратный звонок</Button>
           </div>
           <div className="flex flex-col gap-[20px] text-[12px] leading-[16px] font-medium text-footer-info mt-[50px]">

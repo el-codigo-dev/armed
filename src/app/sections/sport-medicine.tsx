@@ -1,8 +1,16 @@
-import Image from 'next/image';
-import fullRangeImg from '@/assets/images/motobikes.png';
+import motobikesPng from '@/assets/images/sectionsImgs/motobikes.png';
+import motobikesWebp from '@/assets/images/sectionsImgs/motobikes.webp';
+
 import { Button } from '@/components/ui/button';
+import { useImageProps } from '@/hooks/use-umage-props';
 
 export const SportMedicine = () => {
+  const { webp, png, rest } = useImageProps(
+    motobikesWebp,
+    motobikesPng,
+    'Полный спектр медицинского сопровождения',
+  );
+
   return (
     <section className="w-full text-custom-black bg-custom-green py-[80px] max-xl:py-[60px]">
       <div className="flex max-w-[1200px] w-full mx-auto justify-between gap-[20px] max-xl:px-[20px] max-xl:flex-col-reverse">
@@ -22,11 +30,14 @@ export const SportMedicine = () => {
           </div>
         </div>
 
-        <Image
-          src={fullRangeImg}
-          alt="Полный спектр медицинского сопровождения"
-          className="rounded-[30px] h-[444px] w-[590px] object-cover max-sm:h-[372px] mx-auto"
-        />
+        <picture>
+          <source srcSet={webp} type="image/webp" />
+          <source srcSet={png} type="image/jpeg" />
+          <img
+            className="rounded-[30px] h-[444px] w-[590px] object-cover max-sm:h-[372px] mx-auto"
+            {...rest}
+          />
+        </picture>
       </div>
     </section>
   );

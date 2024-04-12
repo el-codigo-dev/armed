@@ -4,23 +4,33 @@ import { useAppSelector } from '@/store/store';
 import Image from 'next/image';
 
 import footerLogo from '../../assets/images/footer/footerLogo.png';
+import footerLogoWebp from '../../assets/images/footer/footerLogo.webp';
+
 import Link from 'next/link';
 import phone from '@/assets/images/footer/phone.svg';
 import { FaPhoneAlt } from 'react-icons/fa';
 import { IoMdMail } from 'react-icons/io';
 import { BsFillGeoAltFill } from 'react-icons/bs';
+import { useImageProps } from '@/hooks/use-umage-props';
 
 export const Footer = () => {
   const isMobileMenuOpen = useAppSelector((store) => store.main.isMobileMenuOpen);
 
+  const { webp, png, rest } = useImageProps(footerLogoWebp, footerLogo, 'Логотип');
+
   return (
     <footer
-      className={`w-full py-[45px] ${
+      className={`w-full ${
         isMobileMenuOpen && 'hidden'
-      } max-xl:pb-[60px] max-xl:pt-[100px] relative bg-footerBg bg-custom-green text-white max-lg:py-[45px]`}>
+      }  max-xl:py-[60px] relative bg-footerBg bg-custom-green text-white`}>
       <div className="flex max-w-[1200px] w-full mx-auto max-sm:px-[20px] max-sm:flex-col max-xl:px-[20px] justify-between gap-[15px] pt-[50px] max-lg:flex-col max-lg:py-0">
         <div className="text-footer-req flex flex-col gap-[25px]">
-          <Image src={footerLogo} width={280} height={78} alt="Лого" className="h-[78px]" />
+          <picture>
+            <source srcSet={webp} type="image/webp" />
+            <source srcSet={png} />
+            <img className="h-[78px] w-[280px]" {...rest} />
+          </picture>
+
           <div className="">
             <p>ИМЕЮТСЯ ПРОТИВОПОКАЗАНИЯ,</p>
             <p>НЕОБХОДИМА КОНСУЛЬТАЦИЯ</p>
@@ -59,7 +69,9 @@ export const Footer = () => {
             <IoMdMail size={20} />
             <p>medcenter@aristomed.ru</p>
           </Link>
-          <span className="self-end mt-auto font-semibold max-lg:self-start max-lg:mt-[20px] ">© Aristomed 2024</span>
+          <span className="self-end mt-auto font-semibold max-lg:self-start max-lg:mt-[20px] ">
+            © Aristomed 2024
+          </span>
         </div>
       </div>
     </footer>

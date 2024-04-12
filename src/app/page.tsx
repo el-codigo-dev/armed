@@ -18,10 +18,7 @@ import { Contacts } from './sections/contacts';
 
 export default function Home() {
   const isMobileMenuOpen = useAppSelector((store) => store.main.isMobileMenuOpen);
-
   const isModalOpen = useAppSelector((store) => store.main.isModalOpen);
-
-  console.log(isModalOpen);
 
   return (
     <>
