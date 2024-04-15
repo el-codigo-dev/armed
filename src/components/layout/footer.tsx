@@ -11,7 +11,7 @@ import phone from '@/assets/images/footer/phone.svg';
 import { FaPhoneAlt } from 'react-icons/fa';
 import { IoMdMail } from 'react-icons/io';
 import { BsFillGeoAltFill } from 'react-icons/bs';
-import { useImageProps } from '@/hooks/use-umage-props';
+import {useImageProps} from "@/hooks/use-umage-props";
 
 export const Footer = () => {
   const isMobileMenuOpen = useAppSelector((store) => store.main.isMobileMenuOpen);
@@ -20,9 +20,9 @@ export const Footer = () => {
 
   return (
     <footer
-      className={`w-full ${
+      className={`w-full py-[45px] ${
         isMobileMenuOpen && 'hidden'
-      }  max-xl:py-[60px] relative bg-footerBg bg-custom-green text-white`}>
+      } max-xl:pb-[60px] max-xl:pt-[100px] relative bg-footerBg bg-custom-green text-white max-lg:py-[45px]`}>
       <div className="flex max-w-[1200px] w-full mx-auto max-sm:px-[20px] max-sm:flex-col max-xl:px-[20px] justify-between gap-[15px] pt-[50px] max-lg:flex-col max-lg:py-0">
         <div className="text-footer-req flex flex-col gap-[25px]">
           <picture>
@@ -69,9 +69,7 @@ export const Footer = () => {
             <IoMdMail size={20} />
             <p>medcenter@aristomed.ru</p>
           </Link>
-          <span className="self-end mt-auto font-semibold max-lg:self-start max-lg:mt-[20px] ">
-            © Aristomed 2024
-          </span>
+          <span className="self-end mt-auto font-semibold max-lg:self-start max-lg:mt-[20px] ">© Aristomed 2024</span>
         </div>
       </div>
     </footer>

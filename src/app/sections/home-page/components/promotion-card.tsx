@@ -1,15 +1,19 @@
 import { Button } from '@/components/ui/button';
 import { ISale } from '@/types/apiTypes';
 import { baseUrl } from '@/utils/config';
+import Image from "next/image";
 
 export const PromotionCard = ({ sale, }: { sale: ISale}) => {
   return (
     <li
       className="flex bg-card-color  p-[25px] rounded-[20px] flex-col h-[500px]">
-      <img
+      <Image
+          width={337}
+          height={250}
         src={baseUrl + sale.image}
         alt="Узи"
         className="w-[full] object-cover h-[250px] rounded-[15px]"
+        loading={"lazy"}
       />
 
       <div className="mt-[25px] flex flex-col">

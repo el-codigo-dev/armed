@@ -1,7 +1,9 @@
+'use client'
+
 import { setModalOpen } from '@/store/mainSlice';
-import { useAppDispatch } from '@/store/store';
 import classNames from 'classnames';
 import React from 'react';
+import {useAppDispatch} from "@/store/store";
 
 interface IButtonProps {
   variant: 'primary' | 'secondary' | 'tertiary' | 'transparent' | 'formButton';

@@ -1,7 +1,6 @@
 'use client';
 
 import ArrowIcon from '@/components/ui/icons/arrow-icon';
-import { useWindowSize } from '@/hooks/use-window-size';
 import classNames from 'classnames';
 import Link from 'next/link';
 import React, { useState } from 'react';

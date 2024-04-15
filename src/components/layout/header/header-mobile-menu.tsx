@@ -18,11 +18,10 @@ import { Button } from '@/components/ui/button';
 import { useAppDispatch } from '@/store/store';
 import { toggleMobileMenuOpen } from '@/store/mainSlice';
 
-export const HeaderMobileMenu = () => {
-  const dispatch = useAppDispatch();
-
+export const HeaderMobileMenu = ({toggle} : {toggle: () => void}) => {
   const handleOpenModal = () => {
-    dispatch(toggleMobileMenuOpen());
+    // dispatch(toggleMobileMenuOpen());
+    toggle()
   };
 
   return (

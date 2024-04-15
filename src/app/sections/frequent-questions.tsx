@@ -12,11 +12,11 @@ export const FrequentQuestions = () => {
     <section className="w-full text-white-default bg-custom-green py-[80px] max-xl:py-[60px]">
       <div className="flex flex-col max-w-[1200px] w-full mx-auto max-xl:px-[20px] ">
         <div className="flex gap-[20px] justify-between max-xl:flex-col max-xl:gap-[30px]">
-          <picture>
+          <picture className="rounded-[30px] flex-shrink-0 h-[810px] w-[550px] object-cover max-xl:h-[372px] mx-auto max-xl:object-top	max-xl:w-[335px]">
             <source srcSet={webp} type="image/webp" />
             <source srcSet={png} />
             <img
-              className="rounded-[30px] h-[810px] w-[550px] object-cover max-xl:h-[372px] mx-auto max-xl:object-top	max-xl:w-[335px]"
+              className="rounded-[30px] flex-shrink-0 h-[810px] w-[550px] object-cover max-xl:h-[372px] mx-auto max-xl:object-top	max-xl:w-[335px]"
               {...rest}
             />
           </picture>
@@ -26,12 +26,6 @@ export const FrequentQuestions = () => {
             alt="Полный спектр медицинского сопровождения"
             className="rounded-[30px] h-[810px] w-[550px] object-cover max-xl:h-[372px] mx-auto max-xl:object-top	max-xl:w-[335px]"
           /> */}
-
-
-            <img
-              className="rounded-[30px] h-[810px] w-[550px] object-cover max-xl:h-[372px] mx-auto max-xl:object-top	max-xl:w-[335px]"
-              {...rest}
-            />
 
 
           <div className="w-full flex flex-col gap-[15px]">

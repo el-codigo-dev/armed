@@ -1,5 +1,3 @@
-'use client';
-
 import Image from 'next/image';
 import contacntsImg from '@/assets/images/contacts/contactsLogo.svg';
 import { requisites, socials } from '@/utils/constants';
@@ -85,7 +83,6 @@ export const Contacts = () => {
             </p>
           </div>
         </div>
-        {/* </div> */}
       </div>
     </section>
   );

@@ -35,8 +35,6 @@ export const AppointmentForm = () => {
   };
 
   const handleSend = async (data: IAppointmentForm) => {
-    console.log(data);
-
     try {
       setIsSuccessMessageVisible(true);
       setTimeout(() => {
@@ -47,10 +45,6 @@ export const AppointmentForm = () => {
       console.error('Ошибка при отправке формы:', error);
     }
   };
-
-// console.log(isSuccessMessageVisible);
-
-
 
   return (
     <>
@@ -159,3 +153,5 @@ export const AppointmentForm = () => {
     </>
   );
 };
+
+export default AppointmentForm

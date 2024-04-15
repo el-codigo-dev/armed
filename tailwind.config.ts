@@ -52,7 +52,7 @@ const config: Config = {
             opacity: '1',
           },
         },
-        
+
         out: {
           from: {
             opacity: '1',
@@ -67,6 +67,9 @@ const config: Config = {
         enter: 'enter 300ms linear',
         out: 'out 300ms linear'
       },
+      screens: {
+        desktop: '1280px'
+      }
     },
   },
   plugins: [],

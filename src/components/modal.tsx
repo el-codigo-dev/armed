@@ -47,19 +47,20 @@ export const Modal = ({ children }: { children: ReactNode }) => {
       document.removeEventListener('click', handleClickOutside);
     };
   }, []);
-  console.log(isOpen);
 
   return (
     <div
       className={classNames(
-        'fixed top-0 left-0 z-[100] w-full h-full bg-black bg-opacity-30 flex overflow-hidden opacity-0 transition-opacity duration-300',
+        'fixed top-0 left-0 z-[100] w-full h-full bg-black bg-opacity-30 flex overflow-auto opacity-0 transition-opacity duration-300',
         isOpen ? '!opacity-100' : 'opacity-0',
       )}>
       <div
         id={'modal-content'}
-        className="mx-[auto] py-[15%] max-sm:py-[0]         max-sm:overflow-scroll box-content">
+        className="m-auto p-[24px]">
         {children}
       </div>
     </div>
   );
 };
+
+export default Modal

@@ -1,20 +1,26 @@
-import Head from 'next/head';
-import { useEffect } from 'react';
+import {useEffect, useState} from 'react';
+import useIntersectionObserver from "@/hooks/use-intersection-observer";
 
 export const Reviews = () => {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://res.smartwidgets.ru/app.js';
-    script.defer = true;
-    document.body.appendChild(script);
+    const {isInView, ref} = useIntersectionObserver(0.1);
+    const [hasLoaded, setHasLoaded] = useState(false);
 
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
+    useEffect(() => {
+        if (isInView && !hasLoaded) {
+            const script = document.createElement('script');
+            script.src = 'https://res.smartwidgets.ru/app.js';
+            script.async = true;
+            document.body.appendChild(script);
+            setHasLoaded(true)
+
+            return () => {
+                document.body.removeChild(script);
+            };
+        }
+    }, [isInView, hasLoaded]);
 
   return (
-    <section className="py-[80px] max-xl:py-[60px] w-full">
+    <section ref={ref} className="py-[80px] max-xl:py-[60px] w-full">
       <div className="max-w-[1200px] w-full mx-auto max-xl:px-[20px] overflow-hidden">
       <h2 className=" text-custom-black h2-text-black mb-[30px]">
           ОТЗЫВЫ

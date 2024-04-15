@@ -1,14 +1,9 @@
 import type { Metadata } from 'next';
-import { Montserrat } from 'next/font/google';
-import { Raleway } from 'next/font/google';
-
 import '../assets/styles/globals.css';
-import { Header } from '../components/layout/header/header';
-import { Footer } from '../components/layout/footer';
-import classNames from 'classnames';
-import Providers from '@/utils/providers';
-import Head from 'next/head';
-
+import { Footer } from '@/components/layout/footer';
+import {Header} from "@/components/layout/header/header";
+import Providers from "@/utils/providers";
+import { Montserrat } from 'next/font/google';
 const montserrat = Montserrat({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -30,8 +25,8 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
       </head>
-      
-      <body className={classNames(montserrat.className)}>
+
+      <body className={montserrat.className}>
         <Providers>
           <Header />
           {children}
